@@ -94,11 +94,10 @@
     self.view.backgroundColor = [UIColor redColor];
     [super viewDidLoad];
     
-    //添加页码显示
-    [self.view addSubview:self.pageControlView];
-    
     //添加scrollerView
     [self addScrolView];
+    //添加页码显示
+    [self.view addSubview:self.pageControlView];
 }
 
 - (void)addScrolView{
@@ -145,6 +144,12 @@
 
 //点击开始微博后跳转控制器
 - (void)clickStartBtn{
+    /*
+     切换控制器的方法
+     1.push: 依赖于导航控制器，可逆的
+     2.modal：可逆的，若用此方法，新特性控制器不会销毁，一直在内存中
+     3.self.window.rootViewController: 新特性只需要显示一次后释放，故选择此方法
+     */
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     window.rootViewController = [[WBTabBarViewController alloc] init];
 }
