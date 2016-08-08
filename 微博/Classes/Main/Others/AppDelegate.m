@@ -10,6 +10,7 @@
 #import "WBTabBarViewController.h"
 #import "NewFeatureController.h"
 #import "WBOAuthViewController.h"
+#import "WBAccountModel.h"
 
 @interface AppDelegate ()
 
@@ -24,27 +25,37 @@
     self.window.frame = [UIScreen mainScreen].bounds;
     
     //2.创建根控制器
+    //沙盒路径
+    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    //拼接路径
+    NSString *path = [doc stringByAppendingPathComponent:@"accout.archive"];
     
-    self.window.rootViewController = [[WBOAuthViewController alloc] init];
+    WBAccountModel *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    if (account) {
+        //之前已经登录成功过
+        //上一次使用的版本号（沙盒中）
+            NSString *key = @"CFBundleVersion";
+            NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+        
+            //显示当前版本号（info.plist文件中读取）
+            NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+        
+            //判断是否显示版本新特性
+            if ([currentVersion isEqualToString:lastVersion]) {
+                //和上一个版本相同，不需要显示新特性
+                self.window.rootViewController = [[WBTabBarViewController alloc] init];
+            }else{
+                //和上一个版本不同，显示新特性
+                self.window.rootViewController = [[NewFeatureController alloc] init];
+                //将当前版本号存储到沙盒中
+                [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+            }
+        
+    }else{
+        self.window.rootViewController = [[WBOAuthViewController alloc] init];
+    }
 
-//    //上一次使用的版本号（沙盒中）
-//    NSString *key = @"CFBundleVersion";
-//    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
-//
-//    //显示当前版本号（info.plist文件中读取）
-//    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
-//
-//    //判断是否显示版本新特性
-//    if ([currentVersion isEqualToString:lastVersion]) {
-//        //和上一个版本相同，不需要显示新特性
-//        self.window.rootViewController = [[WBTabBarViewController alloc] init];
-//    }else{
-//        //和上一个版本不同，显示新特性
-//        self.window.rootViewController = [[NewFeatureController alloc] init];
-//        //将当前版本号存储到沙盒中
-//        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
-//        [[NSUserDefaults standardUserDefaults] synchronize];
-//    }
     
     [self.window makeKeyAndVisible];
     return YES;

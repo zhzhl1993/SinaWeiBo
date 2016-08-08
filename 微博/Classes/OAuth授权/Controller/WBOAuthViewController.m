@@ -8,6 +8,10 @@
 
 #import "WBOAuthViewController.h"
 #import "AFNetworking.h"
+#import "WBTabBarViewController.h"
+#import "NewFeatureController.h"
+#import "WBAccountModel.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface WBOAuthViewController ()<UIWebViewDelegate>
 
@@ -40,13 +44,19 @@
 
 
 #pragma mark - UIWebViewDelegate
-//- (void)webViewDidStartLoad:(UIWebView *)webView{
-//    WBLog(@"webViewDidStartLoad");
-//}
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    WBLog(@"webViewDidStartLoad");
+    [MBProgressHUD showMessage:@"正在加载数据......"];
+}
 
-//- (void)webViewDidFinishLoad:(UIWebView *)webView{
-//    WBLog(@"webViewDidFinishLoad");
-//}
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    WBLog(@"webViewDidFinishLoad");
+    [MBProgressHUD hideHUD];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    [MBProgressHUD hideHUD];
+}
 
 //拦截URL请求用此方法
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
@@ -61,6 +71,9 @@
         
         //利用code获取accessToken
         [self accessTokenWithCode:code];
+        
+        //禁止加载回调地址
+        return NO;
     }
     return YES;
 }
@@ -75,7 +88,7 @@
     //1.创建管理者
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     /*因为新浪数据格式虽然是json，但是它申明成字符串类型，故在响应序列化器self.acceptableContentTypes里面添加了@"text/plain"
-    self.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", @"text/json", @"text/javascript", nil];
+     self.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", @"text/json", @"text/javascript", nil];
      */
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
@@ -89,10 +102,38 @@
     //3.发送请求
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:paraM progress:^(NSProgress * _Nonnull uploadProgress) {
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        WBLog(@"请求成功%@",responseObject);
+    } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary* responseObject) {
+        [MBProgressHUD hideHUD];
+        //沙盒路径
+        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        //拼接路径
+        NSString *path = [doc stringByAppendingPathComponent:@"accout.archive"];
+        //将返回账号数据存储转换成模型然后存储
+        WBAccountModel *account = [WBAccountModel accountWithDict:responseObject];
+        //自定义对象的存储必须用NSKeyedArchiver，writeToFile是字典和数组的方法
+        [NSKeyedArchiver archiveRootObject:account toFile:path];
+        
+        //上一次使用的版本号（沙盒中）
+        NSString *key = @"CFBundleVersion";
+        NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+        //显示当前版本号（info.plist文件中读取）
+        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleVersion"];
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        //判断是否显示版本新特性
+        if ([currentVersion isEqualToString:lastVersion]) {
+            //和上一个版本相同，不需要显示新特性
+            window.rootViewController = [[WBTabBarViewController alloc] init];
+        }else{
+            //和上一个版本不同，显示新特性
+            window.rootViewController = [[NewFeatureController alloc] init];
+            //将当前版本号存储到沙盒中
+            [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-       
+
+        [MBProgressHUD hideHUD];
+        WBLog(@"请求失败%@",error);
     }];
 }
 @end
