@@ -12,6 +12,7 @@
 #import "NewFeatureController.h"
 #import "WBAccountModel.h"
 #import "MBProgressHUD+MJ.h"
+#import "WBAccountTool.h"
 
 @interface WBOAuthViewController ()<UIWebViewDelegate>
 
@@ -104,15 +105,10 @@
         
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary* responseObject) {
         [MBProgressHUD hideHUD];
-        //沙盒路径
-        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        //拼接路径
-        NSString *path = [doc stringByAppendingPathComponent:@"accout.archive"];
         //将返回账号数据存储转换成模型然后存储
         WBAccountModel *account = [WBAccountModel accountWithDict:responseObject];
-        //自定义对象的存储必须用NSKeyedArchiver，writeToFile是字典和数组的方法
-        [NSKeyedArchiver archiveRootObject:account toFile:path];
         
+        [WBAccountTool saveAccountWithAccount:account];
         //上一次使用的版本号（沙盒中）
         NSString *key = @"CFBundleVersion";
         NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];

@@ -10,12 +10,11 @@
 
 @implementation WBAccountModel
 
-+ (instancetype)accountWithDict: (NSDictionary *)dcit{
++ (instancetype)accountWithDict: (NSDictionary *)dict{
     WBAccountModel *account = [[self alloc] init];
-    account.access_token = @"access_token";
-    account.expires_in = @"expires_in";
-    account.uid = @"uid";
-    
+    account.access_token = dict[@"access_token"];
+    account.expires_in = dict[@"expires_in"];
+    account.uid = dict[@"uid"];
     return account;
 }
 
@@ -30,6 +29,7 @@
     [encoder encodeObject:self.access_token forKey:@"access_token"];
     [encoder encodeObject:self.expires_in forKey:@"expires_in"];
     [encoder encodeObject:self.uid forKey:@"uid"];
+    [encoder encodeObject:self.save_time forKey:@"save_time"];
 }
 
 
@@ -44,6 +44,8 @@
         self.access_token = [decoder decodeObjectForKey:@"access_token"];
         self.expires_in = [decoder decodeObjectForKey:@"expires_in"];
         self.uid = [decoder decodeObjectForKey:@"uid"];
+        self.save_time = [decoder decodeObjectForKey:@"save_time"];
+
     }
     return self;
 }

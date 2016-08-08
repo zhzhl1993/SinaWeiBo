@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F95128801D58B93000E61C4A /* WBAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F951287F1D58B93000E61C4A /* WBAccountTool.m */; };
 		F95AE6C91D36642E00EF30E2 /* ZLDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6C81D36642E00EF30E2 /* ZLDropDownMenu.m */; };
 		F95AE6CC1D3667AE00EF30E2 /* WBTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6CB1D3667AE00EF30E2 /* WBTitleMenuViewController.m */; };
 		F95AE6CF1D36720300EF30E2 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6CE1D36720300EF30E2 /* WBTabBar.m */; };
@@ -61,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F951287E1D58B93000E61C4A /* WBAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAccountTool.h; sourceTree = "<group>"; };
+		F951287F1D58B93000E61C4A /* WBAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAccountTool.m; sourceTree = "<group>"; };
 		F95AE6C71D36642E00EF30E2 /* ZLDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLDropDownMenu.h; sourceTree = "<group>"; };
 		F95AE6C81D36642E00EF30E2 /* ZLDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLDropDownMenu.m; sourceTree = "<group>"; };
 		F95AE6CA1D3667AE00EF30E2 /* WBTitleMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTitleMenuViewController.h; sourceTree = "<group>"; };
@@ -157,6 +160,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F951287D1D58B91900E61C4A /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				F951287E1D58B93000E61C4A /* WBAccountTool.h */,
+				F951287F1D58B93000E61C4A /* WBAccountTool.m */,
+			);
+			name = Tool;
+			path = "微博/Classes/OAuth授权/Tool";
+			sourceTree = SOURCE_ROOT;
+		};
 		F95AF1E91D2F52C300FE27A5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +207,7 @@
 		F9DC80011D56D87C0005FC19 /* OAuth授权 */ = {
 			isa = PBXGroup;
 			children = (
+				F951287D1D58B91900E61C4A /* Tool */,
 				F9DC801B1D57639D0005FC19 /* Model */,
 				F9DC80021D56D87C0005FC19 /* Controller */,
 			);
@@ -728,6 +742,7 @@
 				F9E87FD41D30F1BD0001662B /* MessagerCenterViewController.m in Sources */,
 				F9B4AEF91D3A63310089CF45 /* NewFeatureController.m in Sources */,
 				F9E87FD01D30F1BD0001662B /* HomeViewController.m in Sources */,
+				F95128801D58B93000E61C4A /* WBAccountTool.m in Sources */,
 				F9DC80181D56F2E50005FC19 /* AFURLResponseSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@
 #import "NewFeatureController.h"
 #import "WBOAuthViewController.h"
 #import "WBAccountModel.h"
+#import "WBAccountTool.h"
 
 @interface AppDelegate ()
 
@@ -24,13 +25,8 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    //2.创建根控制器
-    //沙盒路径
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    //拼接路径
-    NSString *path = [doc stringByAppendingPathComponent:@"accout.archive"];
-    
-    WBAccountModel *account = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    //2.创建根控制器    
+    WBAccountModel *account = [WBAccountTool account];
     if (account) {
         //之前已经登录成功过
         //上一次使用的版本号（沙盒中）
