@@ -22,6 +22,7 @@
 #define screenHeight [UIScreen mainScreen].bounds.size.height
 
 #import "UIView+Extension.h"
+#import "UIWindow+Extension.h"
 
 //定义开发模式和发布模式下的NSLog，让在发布模式下无打印数出
 #ifdef DEBUG

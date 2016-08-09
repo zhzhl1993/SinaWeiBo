@@ -11,6 +11,7 @@
 		F95AE6C91D36642E00EF30E2 /* ZLDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6C81D36642E00EF30E2 /* ZLDropDownMenu.m */; };
 		F95AE6CC1D3667AE00EF30E2 /* WBTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6CB1D3667AE00EF30E2 /* WBTitleMenuViewController.m */; };
 		F95AE6CF1D36720300EF30E2 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6CE1D36720300EF30E2 /* WBTabBar.m */; };
+		F9AB68471D5957E2006A4D66 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB68461D5957E2006A4D66 /* UIWindow+Extension.m */; };
 		F9B4AEF91D3A63310089CF45 /* NewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B4AEF81D3A63310089CF45 /* NewFeatureController.m */; };
 		F9DC80051D56D8BB0005FC19 /* WBOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DC80041D56D8BB0005FC19 /* WBOAuthViewController.m */; };
 		F9DC80141D56F2E50005FC19 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DC80081D56F2E50005FC19 /* AFHTTPSessionManager.m */; };
@@ -70,6 +71,8 @@
 		F95AE6CB1D3667AE00EF30E2 /* WBTitleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleMenuViewController.m; sourceTree = "<group>"; };
 		F95AE6CD1D36720300EF30E2 /* WBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBar.h; sourceTree = "<group>"; };
 		F95AE6CE1D36720300EF30E2 /* WBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBar.m; sourceTree = "<group>"; };
+		F9AB68451D5957E2006A4D66 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
+		F9AB68461D5957E2006A4D66 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		F9B4AEF71D3A63310089CF45 /* NewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureController.h; sourceTree = "<group>"; };
 		F9B4AEF81D3A63310089CF45 /* NewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureController.m; sourceTree = "<group>"; };
 		F9DC80031D56D8BB0005FC19 /* WBOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBOAuthViewController.h; path = "微博/Classes/OAuth授权/Controller/WBOAuthViewController.h"; sourceTree = SOURCE_ROOT; };
@@ -430,6 +433,8 @@
 				F9E87FE01D327FC80001662B /* UIView+Extension.m */,
 				F9E87FDA1D30F9980001662B /* UIBarButtonItem+Extension.h */,
 				F9E87FDB1D30F9980001662B /* UIBarButtonItem+Extension.m */,
+				F9AB68451D5957E2006A4D66 /* UIWindow+Extension.h */,
+				F9AB68461D5957E2006A4D66 /* UIWindow+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -720,6 +725,7 @@
 				F9DC80141D56F2E50005FC19 /* AFHTTPSessionManager.m in Sources */,
 				F9DC80151D56F2E50005FC19 /* AFNetworkReachabilityManager.m in Sources */,
 				F9E87FD11D30F1BD0001662B /* WBNaigationController.m in Sources */,
+				F9AB68471D5957E2006A4D66 /* UIWindow+Extension.m in Sources */,
 				F9E87FD51D30F1BD0001662B /* ProfileViewController.m in Sources */,
 				F95AE6CC1D3667AE00EF30E2 /* WBTitleMenuViewController.m in Sources */,
 				F95AE6C91D36642E00EF30E2 /* ZLDropDownMenu.m in Sources */,
