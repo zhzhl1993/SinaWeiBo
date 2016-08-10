@@ -13,5 +13,5 @@
 /**
  *  切换根控制器
  */
-+ (void)switchViewController;
+- (void)switchViewController;
 @end

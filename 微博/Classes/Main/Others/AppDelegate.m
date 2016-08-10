@@ -23,19 +23,18 @@
     self.window = [[UIWindow alloc] init];
     self.window.frame = [UIScreen mainScreen].bounds;
     
-    //2.设置主窗口
-    [self.window makeKeyAndVisible];
-    
-    //3.创建根控制器
+    //2.创建根控制器
     WBAccountModel *account = [WBAccountTool account];
     if (account) {
         //之前已经登录成功过
         //切换控制器
-        [UIWindow switchViewController];
+        [self.window switchViewController];
         
     }else{
         self.window.rootViewController = [[WBOAuthViewController alloc] init];
     }
+    //3.设置主窗口
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

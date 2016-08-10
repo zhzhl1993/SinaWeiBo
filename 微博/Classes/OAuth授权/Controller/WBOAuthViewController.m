@@ -110,7 +110,8 @@
         [WBAccountTool saveAccountWithAccount:account];
         
         //切换根控制器
-        [UIWindow switchViewController];
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window switchViewController];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 
         [MBProgressHUD hideHUD];
