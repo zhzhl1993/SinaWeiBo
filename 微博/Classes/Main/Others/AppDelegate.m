@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "WBOAuthViewController.h"
 #import "WBAccountTool.h"
+#import "SDWebImageManager.h"
 
 @interface AppDelegate ()
 
@@ -35,6 +36,15 @@
     //3.设置主窗口
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    
+    SDWebImageManager *mgr = [SDWebImageManager sharedManager];
+    //1.取消下载
+    [mgr cancelAll];
+    //2.清除内存中的所有图片
+    [mgr.imageCache clearMemory];
 }
 
 
