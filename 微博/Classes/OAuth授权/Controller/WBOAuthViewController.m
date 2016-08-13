@@ -8,7 +8,6 @@
 
 #import "WBOAuthViewController.h"
 #import "AFNetworking.h"
-#import "WBAccountModel.h"
 #import "MBProgressHUD+MJ.h"
 #import "WBAccountTool.h"
 
@@ -89,7 +88,8 @@
     /*因为新浪数据格式虽然是json，但是它申明成字符串类型，故在响应序列化器self.acceptableContentTypes里面添加了@"text/plain"
      self.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", @"text/json", @"text/javascript", nil];
      */
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    //内部改了，在此可以注释
+//    manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     //2.拼接请求参数
     NSMutableDictionary *paraM = [NSMutableDictionary dictionary];

@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "WBOAuthViewController.h"
-#import "WBAccountModel.h"
 #import "WBAccountTool.h"
 
 @interface AppDelegate ()

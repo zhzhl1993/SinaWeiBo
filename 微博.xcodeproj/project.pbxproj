@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F945A94D1D5ECABD00785A33 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = F945A94C1D5ECABD00785A33 /* Foundation+Log.m */; };
+		F945A9531D5EFF8200785A33 /* WBTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F945A9521D5EFF8200785A33 /* WBTitleButton.m */; };
 		F95128801D58B93000E61C4A /* WBAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F951287F1D58B93000E61C4A /* WBAccountTool.m */; };
 		F95AE6C91D36642E00EF30E2 /* ZLDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6C81D36642E00EF30E2 /* ZLDropDownMenu.m */; };
 		F95AE6CC1D3667AE00EF30E2 /* WBTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6CB1D3667AE00EF30E2 /* WBTitleMenuViewController.m */; };
@@ -63,6 +65,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F945A94C1D5ECABD00785A33 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		F945A9511D5EFF8200785A33 /* WBTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTitleButton.h; sourceTree = "<group>"; };
+		F945A9521D5EFF8200785A33 /* WBTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleButton.m; sourceTree = "<group>"; };
 		F951287E1D58B93000E61C4A /* WBAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAccountTool.h; sourceTree = "<group>"; };
 		F951287F1D58B93000E61C4A /* WBAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAccountTool.m; sourceTree = "<group>"; };
 		F95AE6C71D36642E00EF30E2 /* ZLDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLDropDownMenu.h; sourceTree = "<group>"; };
@@ -408,6 +413,8 @@
 		F9E87FAC1D30F1BD0001662B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F945A9511D5EFF8200785A33 /* WBTitleButton.h */,
+				F945A9521D5EFF8200785A33 /* WBTitleButton.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -429,6 +436,7 @@
 		F9E87FAE1D30F1BD0001662B /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				F945A94C1D5ECABD00785A33 /* Foundation+Log.m */,
 				F9E87FDF1D327FC80001662B /* UIView+Extension.h */,
 				F9E87FE01D327FC80001662B /* UIView+Extension.m */,
 				F9E87FDA1D30F9980001662B /* UIBarButtonItem+Extension.h */,
@@ -722,6 +730,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9E843C21D197ADF001124B2 /* main.m in Sources */,
+				F945A9531D5EFF8200785A33 /* WBTitleButton.m in Sources */,
 				F9DC80141D56F2E50005FC19 /* AFHTTPSessionManager.m in Sources */,
 				F9DC80151D56F2E50005FC19 /* AFNetworkReachabilityManager.m in Sources */,
 				F9E87FD11D30F1BD0001662B /* WBNaigationController.m in Sources */,
@@ -732,6 +741,7 @@
 				F9DC80171D56F2E50005FC19 /* AFURLRequestSerialization.m in Sources */,
 				F9DC80161D56F2E50005FC19 /* AFSecurityPolicy.m in Sources */,
 				F9DC80191D56F2E50005FC19 /* AFURLSessionManager.m in Sources */,
+				F945A94D1D5ECABD00785A33 /* Foundation+Log.m in Sources */,
 				F9DC80051D56D8BB0005FC19 /* WBOAuthViewController.m in Sources */,
 				F9E87FD61D30F1BD0001662B /* Test2ViewController.m in Sources */,
 				F9E87FD81D30F1BD0001662B /* testViewController.m in Sources */,

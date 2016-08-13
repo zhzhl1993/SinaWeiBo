@@ -21,7 +21,6 @@
  */
 +(void)saveAccountWithAccount:(WBAccountModel *)account{
     
-    account.save_time = [NSDate date];
     //自定义对象的存储必须用NSKeyedArchiver，writeToFile是字典和数组的方法
     [NSKeyedArchiver archiveRootObject:account toFile:WBAccountPath];
 }

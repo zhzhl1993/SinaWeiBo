@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class WBAccountModel;
+#import "WBAccountModel.h"
 
 @interface WBAccountTool : NSObject
 

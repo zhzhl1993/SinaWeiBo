@@ -18,6 +18,8 @@
 @property (nonatomic, copy) NSString *uid;
 /**获得accessToken的时间*/
 @property (nonatomic, strong) NSDate *save_time;
+/**授权用户昵称*/
+@property (nonatomic, copy) NSString *name;
 
 /**保存用户登录后的信息*/
 + (instancetype)accountWithDict: (NSDictionary *)dict;

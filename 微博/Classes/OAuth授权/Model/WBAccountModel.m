@@ -11,10 +11,14 @@
 @implementation WBAccountModel
 
 + (instancetype)accountWithDict: (NSDictionary *)dict{
+    
     WBAccountModel *account = [[self alloc] init];
+    //账户创建时间
+    account.save_time = [NSDate date];
     account.access_token = dict[@"access_token"];
     account.expires_in = dict[@"expires_in"];
     account.uid = dict[@"uid"];
+    account.name = dict[@"name"];
     return account;
 }
 
@@ -30,6 +34,7 @@
     [encoder encodeObject:self.expires_in forKey:@"expires_in"];
     [encoder encodeObject:self.uid forKey:@"uid"];
     [encoder encodeObject:self.save_time forKey:@"save_time"];
+    [encoder encodeObject:self.name forKey:@"name"];
 }
 
 
@@ -45,7 +50,7 @@
         self.expires_in = [decoder decodeObjectForKey:@"expires_in"];
         self.uid = [decoder decodeObjectForKey:@"uid"];
         self.save_time = [decoder decodeObjectForKey:@"save_time"];
-
+        self.name = [decoder decodeObjectForKey:@"name"];
     }
     return self;
 }

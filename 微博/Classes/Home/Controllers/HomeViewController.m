@@ -10,6 +10,9 @@
 #import "UIBarButtonItem+Extension.h"
 #import "ZLDropDownMenu.h"
 #import "WBTitleMenuViewController.h"
+#import "AFNetworking.h"
+#import "WBAccountTool.h"
+#import "WBTitleButton.h"
 
 @interface HomeViewController () <ZLDropDownMenuDelegate>
 
@@ -22,24 +25,66 @@
     [super viewDidLoad];
     
     //设置导航栏上的内容
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(friendsearch) image: @"navigationbar_friendsearch" highImage: @"navigationbar_friendsearch_highlighted"];
+    [self setupNav];
     
+    //获取用户信息
+    [self setupUserInfo];
+}
+
+
+/**
+ *  获取用户信息
+ */
+- (void)setupUserInfo{
+    /**
+     https://api.weibo.com/2/users/show.json
+     access_token	true	string	采用OAuth授权方式为必填参数，OAuth授权后获得。
+     uid	false	int64	需要查询的用户ID。
+     */
+    //1.创建管理者
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    //2.拼接参数
+    WBAccountModel *account = [WBAccountTool account];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    dict[@"access_token"] = account.access_token;
+    dict[@"uid"] = account.uid;
+    
+    //3.获取信息
+    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:dict progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        //设置主页标题
+        WBTitleButton *titleBtn = (WBTitleButton *)self.navigationItem.titleView;
+        NSString *name = responseObject[@"name"];
+        [titleBtn setTitle:name forState:UIControlStateNormal];
+        
+        account.name = name;
+        [WBAccountTool saveAccountWithAccount:account];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"请求失败---%@", error);
+    }];
+}
+
+
+/**
+ *  设置导航栏上的内容
+ */
+- (void)setupNav{
+    
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(friendsearch) image: @"navigationbar_friendsearch" highImage: @"navigationbar_friendsearch_highlighted"];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(pop) image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
     
-    //设置标题的下拉菜单
-    UIButton *titleBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    titleBtn.width = 150;
-    titleBtn.height = 30;
-    [titleBtn setTitle:@"首页" forState:UIControlStateNormal];
-    [titleBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    titleBtn.titleLabel.font = [UIFont boldSystemFontOfSize:17];
-    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    [titleBtn setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState: UIControlStateSelected];
-    titleBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 60);
-    titleBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 70, 0, 0);
+    //设置标题
+    WBTitleButton *titleBtn = [[WBTitleButton alloc] init];
+    NSString *name = [WBAccountTool account].name;
+    [titleBtn setTitle: name ? name : @"首页" forState:UIControlStateNormal];
+
     [titleBtn addTarget:self action:@selector(titleClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleBtn;
 }
+
 
 /**
  *  标题的点击
