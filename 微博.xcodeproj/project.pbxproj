@@ -63,6 +63,17 @@
 		F9E87FDC1D30F9980001662B /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E87FDB1D30F9980001662B /* UIBarButtonItem+Extension.m */; };
 		F9E87FE11D327FC80001662B /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E87FE01D327FC80001662B /* UIView+Extension.m */; };
 		F9E87FE41D32880F0001662B /* SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E87FE31D32880F0001662B /* SearchBar.m */; };
+		F9F7362D1D5FF01E003C3331 /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F736171D5FF01E003C3331 /* MJArgument.m */; };
+		F9F7362E1D5FF01E003C3331 /* MJConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F736191D5FF01E003C3331 /* MJConst.m */; };
+		F9F7362F1D5FF01E003C3331 /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F7361C1D5FF01E003C3331 /* MJFoundation.m */; };
+		F9F736301D5FF01E003C3331 /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F7361E1D5FF01E003C3331 /* MJIvar.m */; };
+		F9F736311D5FF01E003C3331 /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F736201D5FF01E003C3331 /* MJMember.m */; };
+		F9F736321D5FF01E003C3331 /* MJMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F736221D5FF01E003C3331 /* MJMethod.m */; };
+		F9F736331D5FF01E003C3331 /* MJType.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F736241D5FF01E003C3331 /* MJType.m */; };
+		F9F736341D5FF01E003C3331 /* MJTypeEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F736261D5FF01E003C3331 /* MJTypeEncoding.m */; };
+		F9F736351D5FF01E003C3331 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F736281D5FF01E003C3331 /* NSObject+MJCoding.m */; };
+		F9F736361D5FF01E003C3331 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F7362A1D5FF01E003C3331 /* NSObject+MJKeyValue.m */; };
+		F9F736371D5FF01E003C3331 /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F7362C1D5FF01E003C3331 /* NSObject+MJMember.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,6 +207,29 @@
 		F9E87FE01D327FC80001662B /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		F9E87FE21D32880F0001662B /* SearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBar.h; sourceTree = "<group>"; };
 		F9E87FE31D32880F0001662B /* SearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBar.m; sourceTree = "<group>"; };
+		F9F736161D5FF01E003C3331 /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
+		F9F736171D5FF01E003C3331 /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
+		F9F736181D5FF01E003C3331 /* MJConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJConst.h; sourceTree = "<group>"; };
+		F9F736191D5FF01E003C3331 /* MJConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJConst.m; sourceTree = "<group>"; };
+		F9F7361A1D5FF01E003C3331 /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
+		F9F7361B1D5FF01E003C3331 /* MJFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJFoundation.h; sourceTree = "<group>"; };
+		F9F7361C1D5FF01E003C3331 /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
+		F9F7361D1D5FF01E003C3331 /* MJIvar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJIvar.h; sourceTree = "<group>"; };
+		F9F7361E1D5FF01E003C3331 /* MJIvar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJIvar.m; sourceTree = "<group>"; };
+		F9F7361F1D5FF01E003C3331 /* MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJMember.h; sourceTree = "<group>"; };
+		F9F736201D5FF01E003C3331 /* MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJMember.m; sourceTree = "<group>"; };
+		F9F736211D5FF01E003C3331 /* MJMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJMethod.h; sourceTree = "<group>"; };
+		F9F736221D5FF01E003C3331 /* MJMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJMethod.m; sourceTree = "<group>"; };
+		F9F736231D5FF01E003C3331 /* MJType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJType.h; sourceTree = "<group>"; };
+		F9F736241D5FF01E003C3331 /* MJType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJType.m; sourceTree = "<group>"; };
+		F9F736251D5FF01E003C3331 /* MJTypeEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJTypeEncoding.h; sourceTree = "<group>"; };
+		F9F736261D5FF01E003C3331 /* MJTypeEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJTypeEncoding.m; sourceTree = "<group>"; };
+		F9F736271D5FF01E003C3331 /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
+		F9F736281D5FF01E003C3331 /* NSObject+MJCoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJCoding.m"; sourceTree = "<group>"; };
+		F9F736291D5FF01E003C3331 /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
+		F9F7362A1D5FF01E003C3331 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
+		F9F7362B1D5FF01E003C3331 /* NSObject+MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJMember.h"; sourceTree = "<group>"; };
+		F9F7362C1D5FF01E003C3331 /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -560,6 +594,7 @@
 		F9E87FB41D30F1BD0001662B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				F9F736151D5FF01E003C3331 /* MJExtension */,
 				F945A9541D5F4C0200785A33 /* SDWebImage */,
 				F9DC801F1D5803080005FC19 /* MBProgressHUD */,
 				F9DC80061D56F2E50005FC19 /* AFNetworking */,
@@ -694,6 +729,36 @@
 			name = Temp;
 			path = "微博/Classes/Temp";
 			sourceTree = SOURCE_ROOT;
+		};
+		F9F736151D5FF01E003C3331 /* MJExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F9F736161D5FF01E003C3331 /* MJArgument.h */,
+				F9F736171D5FF01E003C3331 /* MJArgument.m */,
+				F9F736181D5FF01E003C3331 /* MJConst.h */,
+				F9F736191D5FF01E003C3331 /* MJConst.m */,
+				F9F7361A1D5FF01E003C3331 /* MJExtension.h */,
+				F9F7361B1D5FF01E003C3331 /* MJFoundation.h */,
+				F9F7361C1D5FF01E003C3331 /* MJFoundation.m */,
+				F9F7361D1D5FF01E003C3331 /* MJIvar.h */,
+				F9F7361E1D5FF01E003C3331 /* MJIvar.m */,
+				F9F7361F1D5FF01E003C3331 /* MJMember.h */,
+				F9F736201D5FF01E003C3331 /* MJMember.m */,
+				F9F736211D5FF01E003C3331 /* MJMethod.h */,
+				F9F736221D5FF01E003C3331 /* MJMethod.m */,
+				F9F736231D5FF01E003C3331 /* MJType.h */,
+				F9F736241D5FF01E003C3331 /* MJType.m */,
+				F9F736251D5FF01E003C3331 /* MJTypeEncoding.h */,
+				F9F736261D5FF01E003C3331 /* MJTypeEncoding.m */,
+				F9F736271D5FF01E003C3331 /* NSObject+MJCoding.h */,
+				F9F736281D5FF01E003C3331 /* NSObject+MJCoding.m */,
+				F9F736291D5FF01E003C3331 /* NSObject+MJKeyValue.h */,
+				F9F7362A1D5FF01E003C3331 /* NSObject+MJKeyValue.m */,
+				F9F7362B1D5FF01E003C3331 /* NSObject+MJMember.h */,
+				F9F7362C1D5FF01E003C3331 /* NSObject+MJMember.m */,
+			);
+			path = MJExtension;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -833,22 +898,29 @@
 				F945A97E1D5F4C0200785A33 /* SDWebImagePrefetcher.m in Sources */,
 				F945A9851D5F4C0200785A33 /* UIView+WebCacheOperation.m in Sources */,
 				F945A9761D5F4C0200785A33 /* MKAnnotationView+WebCache.m in Sources */,
+				F9F736331D5FF01E003C3331 /* MJType.m in Sources */,
 				F945A9531D5EFF8200785A33 /* WBTitleButton.m in Sources */,
 				F9DC80141D56F2E50005FC19 /* AFHTTPSessionManager.m in Sources */,
+				F9F736341D5FF01E003C3331 /* MJTypeEncoding.m in Sources */,
 				F9DC80151D56F2E50005FC19 /* AFNetworkReachabilityManager.m in Sources */,
+				F9F7362F1D5FF01E003C3331 /* MJFoundation.m in Sources */,
 				F9E87FD11D30F1BD0001662B /* WBNaigationController.m in Sources */,
 				F945A9811D5F4C0200785A33 /* UIImage+MultiFormat.m in Sources */,
 				F9AB68471D5957E2006A4D66 /* UIWindow+Extension.m in Sources */,
 				F945A98B1D5F522B00785A33 /* WBStatus.m in Sources */,
+				F9F7362D1D5FF01E003C3331 /* MJArgument.m in Sources */,
 				F9E87FD51D30F1BD0001662B /* ProfileViewController.m in Sources */,
 				F95AE6CC1D3667AE00EF30E2 /* WBTitleMenuViewController.m in Sources */,
 				F95AE6C91D36642E00EF30E2 /* ZLDropDownMenu.m in Sources */,
 				F945A9771D5F4C0200785A33 /* NSData+ImageContentType.m in Sources */,
 				F945A9801D5F4C0200785A33 /* UIImage+GIF.m in Sources */,
+				F9F736321D5FF01E003C3331 /* MJMethod.m in Sources */,
 				F9DC80171D56F2E50005FC19 /* AFURLRequestSerialization.m in Sources */,
+				F9F736351D5FF01E003C3331 /* NSObject+MJCoding.m in Sources */,
 				F945A97B1D5F4C0200785A33 /* SDWebImageDownloader.m in Sources */,
 				F945A9791D5F4C0200785A33 /* SDWebImageCompat.m in Sources */,
 				F9DC80161D56F2E50005FC19 /* AFSecurityPolicy.m in Sources */,
+				F9F736311D5FF01E003C3331 /* MJMember.m in Sources */,
 				F945A9831D5F4C0200785A33 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F9DC80191D56F2E50005FC19 /* AFURLSessionManager.m in Sources */,
 				F945A94D1D5ECABD00785A33 /* Foundation+Log.m in Sources */,
@@ -856,9 +928,11 @@
 				F945A97D1D5F4C0200785A33 /* SDWebImageManager.m in Sources */,
 				F9DC80051D56D8BB0005FC19 /* WBOAuthViewController.m in Sources */,
 				F9E87FD61D30F1BD0001662B /* Test2ViewController.m in Sources */,
+				F9F736301D5FF01E003C3331 /* MJIvar.m in Sources */,
 				F9E87FD81D30F1BD0001662B /* testViewController.m in Sources */,
 				F9DC80271D5803080005FC19 /* MBProgressHUD.m in Sources */,
 				F945A97C1D5F4C0200785A33 /* SDWebImageDownloaderOperation.m in Sources */,
+				F9F7362E1D5FF01E003C3331 /* MJConst.m in Sources */,
 				F9DC801E1D5763BD0005FC19 /* WBAccountModel.m in Sources */,
 				F9E87FD31D30F1BD0001662B /* AppDelegate.m in Sources */,
 				F9E87FE11D327FC80001662B /* UIView+Extension.m in Sources */,
@@ -866,11 +940,13 @@
 				F95AE6CF1D36720300EF30E2 /* WBTabBar.m in Sources */,
 				F9DC80251D5803080005FC19 /* MBProgressHUD+MJ.m in Sources */,
 				F9E87FDC1D30F9980001662B /* UIBarButtonItem+Extension.m in Sources */,
+				F9F736361D5FF01E003C3331 /* NSObject+MJKeyValue.m in Sources */,
 				F945A97F1D5F4C0200785A33 /* UIButton+WebCache.m in Sources */,
 				F9E87FCF1D30F1BD0001662B /* DiscoverViewController.m in Sources */,
 				F9E87FD21D30F1BD0001662B /* WBTabBarViewController.m in Sources */,
 				F9E87FD41D30F1BD0001662B /* MessagerCenterViewController.m in Sources */,
 				F945A9781D5F4C0200785A33 /* SDImageCache.m in Sources */,
+				F9F736371D5FF01E003C3331 /* NSObject+MJMember.m in Sources */,
 				F9B4AEF91D3A63310089CF45 /* NewFeatureController.m in Sources */,
 				F9E87FD01D30F1BD0001662B /* HomeViewController.m in Sources */,
 				F945A9881D5F4EE000785A33 /* WBUser.m in Sources */,

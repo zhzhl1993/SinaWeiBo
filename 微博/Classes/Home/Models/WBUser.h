@@ -4,7 +4,7 @@
 //
 //  Created by 朱占龙 on 16/8/13.
 //  Copyright © 2016年 cuit. All rights reserved.
-//
+//  用户信息模型
 
 #import <Foundation/Foundation.h>
 
@@ -16,7 +16,4 @@
 @property(nonatomic, copy) NSString *name;
 /**string 用户头像地址*/
 @property(nonatomic, copy) NSString *profile_image_url;
-
-/**传入字典生成用户模型*/
-+ (instancetype)userWithDict:(NSDictionary *)dict;
 @end

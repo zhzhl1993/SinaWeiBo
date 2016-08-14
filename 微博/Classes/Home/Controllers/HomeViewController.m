@@ -16,6 +16,7 @@
 #import "UIImageView+WebCache.h"
 #import "WBStatus.h"
 #import "WBUser.h"
+#import "MJExtension.h"
 
 @interface HomeViewController () <ZLDropDownMenuDelegate>
 /**微博数组，里面存放都是WBStatus模型，每一个WBStatus模型都是一条微博*/
@@ -41,43 +42,53 @@
     //获取用户信息
     [self setupUserInfo];
     
-    //加载最新的微博数据
-    [self loadNewStatus];
+    //下拉刷新
+    [self refreshStatus];
 }
 
 /**
- *  加载最新的微博数据
+ *  下拉刷新
  */
-- (void)loadNewStatus{
+- (void)refreshStatus{
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    [refresh addTarget:self action:@selector(refreshNewStatus:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refresh];
+}
+
+//开始刷新
+- (void)refreshNewStatus:(UIRefreshControl *)control{
     //https://api.weibo.com/2/statuses/friends_timeline.json
     //1.创建管理者
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     //2.拼接参数
     WBAccountModel *account = [WBAccountTool account];
-    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    dict[@"access_token"] = account.access_token;
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = account.access_token;
+    
+    //取出最前面的微博 （最新的微博，最大的ID）
+    WBStatus *firstStatus = [self.statuses firstObject];
+    if (firstStatus) {
+        params[@"since_id"] = firstStatus.idstr;
+    }
     
     //3.获取信息
-    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:dict progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manager GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-    
-        NSArray *dictArray = responseObject[@"statuses"];
-
-        //将数组转换成模型
-        for (NSDictionary *dict in dictArray) {
-            WBStatus *status = [WBStatus statusWithDict:dict];
-            [self.statuses addObject:status];
-        }
+        //将字典数组转换成模型数组
+        NSArray *newStatus = [WBStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSRange range = NSMakeRange(0, newStatus.count);
+        NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
+        [self.statuses insertObjects:newStatus atIndexes:set];
         
         //刷新表格
         [self.tableView reloadData];
-        
+        [control endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败---%@", error);
+        [control endRefreshing];
     }];
-
 }
 
 /**
@@ -97,10 +108,10 @@
     //3.获取信息
     [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:dict progress:^(NSProgress * _Nonnull downloadProgress) {
         
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
         //设置主页标题
         WBTitleButton *titleBtn = (WBTitleButton *)self.navigationItem.titleView;
-        WBUser *user = [WBUser userWithDict:responseObject];
+        WBUser *user = [WBUser objectWithKeyValues:responseObject];
         [titleBtn setTitle:user.name forState:UIControlStateNormal];
         
         account.name = user.name;
@@ -110,7 +121,6 @@
         NSLog(@"请求失败---%@", error);
     }];
 }
-
 
 /**
  *  设置导航栏上的内容
