@@ -44,15 +44,24 @@
     
     //下拉刷新
     [self refreshStatus];
+    
 }
 
 /**
  *  下拉刷新
  */
 - (void)refreshStatus{
+    
+    //1.创建刷新控件
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
     [refresh addTarget:self action:@selector(refreshNewStatus:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:refresh];
+    
+    //2.马上进入刷新状态，并不会触发UIControlEventValueChanged事件
+    [refresh  beginRefreshing];
+    
+    //3.马上加载数据
+    [self refreshNewStatus:refresh];
 }
 
 //开始刷新
@@ -85,10 +94,35 @@
         //刷新表格
         [self.tableView reloadData];
         [control endRefreshing];
+        
+        //动画提示更新条数
+        [self showNewStatusCount: (unsigned long)newStatus.count];
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"请求失败---%@", error);
         [control endRefreshing];
     }];
+}
+
+/**
+ *  动画提示更新条数
+ */
+- (void)showNewStatusCount:(unsigned long)count{
+    
+    NSLog(@"更新了%lu条微博",count);
+    //1.创建label
+    UILabel *label = [[UILabel alloc] init];
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    label.textColor = [UIColor whiteColor];
+    label.font = [UIFont systemFontOfSize:16];
+    
+    //2.设置文字
+    if (!count) {
+        
+        label.text = @"没有最新的微博内容，请稍后再试！";
+    }else{
+        label.text = [NSString stringWithFormat:@"更新了%lu条微博",count];
+    }
 }
 
 /**
