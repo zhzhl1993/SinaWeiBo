@@ -11,6 +11,8 @@
 #import "WBAccountTool.h"
 #import "SDWebImageManager.h"
 
+#define kDeviceVersion  [[UIDevice currentDevice] systemVersion].floatValue
+
 @interface AppDelegate ()
 
 @end
@@ -35,6 +37,16 @@
     }
     //3.设置主窗口
     [self.window makeKeyAndVisible];
+    
+    /**
+     *  注册通知
+     */
+    if (kDeviceVersion >= 8.0) {
+        // 使用本地通知 (本例中只是badge，但是还有alert和sound都属于通知类型,其实如果只进行未读数在appIcon显示,只需要badge就可, 这里全写上为了方便以后的使用)
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert categories:nil];
+        // 进行注册
+        [application registerUserNotificationSettings:settings];
+    }
     return YES;
 }
 
@@ -53,9 +65,26 @@
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
+/**
+ *  当程序进入后台的时候调用
+ */
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    /**
+     *  app的状态
+     *  1.死亡状态
+     *  2.前台运行状态
+     *  3.后台暂停状态，停止一切动画、定时器、多媒体、联网操作
+     *  4.后台运行状态
+     */
+    UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
+        
+        [application endBackgroundTask:task];
+    }];
+    
+    //搞一个0KB的MP3文件，没有声音，
+    //循环播放
+    
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

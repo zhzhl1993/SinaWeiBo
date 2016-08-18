@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F928003D1D65490F00A478E3 /* WBLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F928003C1D65490F00A478E3 /* WBLoadMoreFooter.m */; };
+		F928003F1D65493900A478E3 /* WBLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F928003E1D65493900A478E3 /* WBLoadMoreFooter.xib */; };
 		F945A94D1D5ECABD00785A33 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = F945A94C1D5ECABD00785A33 /* Foundation+Log.m */; };
 		F945A9531D5EFF8200785A33 /* WBTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F945A9521D5EFF8200785A33 /* WBTitleButton.m */; };
 		F945A9761D5F4C0200785A33 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F945A9561D5F4C0200785A33 /* MKAnnotationView+WebCache.m */; };
@@ -94,6 +96,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F928003B1D65490F00A478E3 /* WBLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBLoadMoreFooter.h; sourceTree = "<group>"; };
+		F928003C1D65490F00A478E3 /* WBLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBLoadMoreFooter.m; sourceTree = "<group>"; };
+		F928003E1D65493900A478E3 /* WBLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBLoadMoreFooter.xib; sourceTree = "<group>"; };
 		F945A94C1D5ECABD00785A33 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		F945A9511D5EFF8200785A33 /* WBTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTitleButton.h; sourceTree = "<group>"; };
 		F945A9521D5EFF8200785A33 /* WBTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleButton.m; sourceTree = "<group>"; };
@@ -548,6 +553,9 @@
 			children = (
 				F945A9511D5EFF8200785A33 /* WBTitleButton.h */,
 				F945A9521D5EFF8200785A33 /* WBTitleButton.m */,
+				F928003B1D65490F00A478E3 /* WBLoadMoreFooter.h */,
+				F928003C1D65490F00A478E3 /* WBLoadMoreFooter.m */,
+				F928003E1D65493900A478E3 /* WBLoadMoreFooter.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -865,6 +873,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F928003F1D65493900A478E3 /* WBLoadMoreFooter.xib in Resources */,
 				F9E843D01D197ADF001124B2 /* LaunchScreen.storyboard in Resources */,
 				F9E87FD71D30F1BD0001662B /* Test2ViewController.xib in Resources */,
 				F9DC80261D5803080005FC19 /* MBProgressHUD.bundle in Resources */,
@@ -935,6 +944,7 @@
 				F9F7362E1D5FF01E003C3331 /* MJConst.m in Sources */,
 				F9DC801E1D5763BD0005FC19 /* WBAccountModel.m in Sources */,
 				F9E87FD31D30F1BD0001662B /* AppDelegate.m in Sources */,
+				F928003D1D65490F00A478E3 /* WBLoadMoreFooter.m in Sources */,
 				F9E87FE11D327FC80001662B /* UIView+Extension.m in Sources */,
 				F9E87FE41D32880F0001662B /* SearchBar.m in Sources */,
 				F95AE6CF1D36720300EF30E2 /* WBTabBar.m in Sources */,
