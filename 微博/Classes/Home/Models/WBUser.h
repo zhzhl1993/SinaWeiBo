@@ -16,4 +16,10 @@
 @property(nonatomic, copy) NSString *name;
 /**string 用户头像地址*/
 @property(nonatomic, copy) NSString *profile_image_url;
+/** 会员类型 值>2表示才是会员 */
+@property(nonatomic, assign) int mbtype;
+/** 会员等级 */
+@property(nonatomic, assign) int mbrank;
+/** 会员等级 */
+@property(nonatomic, assign, getter = isvip) BOOL vip;
 @end

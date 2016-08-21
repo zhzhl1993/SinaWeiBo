@@ -72,6 +72,7 @@
 
         /** 会员图标 */
         UIImageView *vipView = [[UIImageView alloc] init];
+        vipView.contentMode = UIViewContentModeCenter;
         [originalView addSubview:vipView];
         self.vipView = vipView;
 
@@ -123,6 +124,7 @@
 
     /** 昵称 */
     self.nameLabel.frame = statusFrame.nameLabelF;
+    self.nameLabel.font = WBStatusCellFont;
     self.nameLabel.text = user.name;
     
     /** 时间 */

@@ -11,6 +11,9 @@
 
 #import <Foundation/Foundation.h>
 
+/** cell的边界宽度 */
+#define WBStatusCellFont [UIFont systemFontOfSize:13]
+
 @class WBStatus;
 
 @interface WBStatusFrame : NSObject
