@@ -8,6 +8,9 @@
 
 #import "WBTitleButton.h"
 
+/**按钮文字和图片之间的距离*/
+#define WBMargin 10
+
 @implementation WBTitleButton
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -18,9 +21,20 @@
         self.titleLabel.font = [UIFont boldSystemFontOfSize:17];
         [self setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
         [self setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState: UIControlStateSelected];
-        self.imageView.backgroundColor = [UIColor clearColor];
     }
     return self;
+}
+
+
+//想要在系统设置完后再设置完尺寸后，再设置下尺寸
+/**
+ *  设置setFrame方法的目的：拦截设置按钮尺寸的过程
+ *  如果想在系统设置完控件的尺寸后，再修改尺寸，而且保证修改成功的话就要在setFrame中设置
+ */
+- (void)setFrame:(CGRect)frame{
+    
+    frame.size.width += WBMargin;
+    [super setFrame:frame];
 }
 
 /**
@@ -32,7 +46,7 @@
     //1.计算label
     self.titleLabel.x = self.imageView.x;
     //2.计算imageView
-    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + 10;
+    self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + WBMargin;
 }
 
 - (void)setTitle:(NSString *)title forState:(UIControlState)state{

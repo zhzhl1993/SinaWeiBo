@@ -18,6 +18,8 @@
 #import "WBUser.h"
 #import "MJExtension.h"
 #import "WBLoadMoreFooter.h"
+#import "WBStatusCell.h"
+#import "WBStatusFrame.h"
 
 @interface HomeViewController () <ZLDropDownMenuDelegate>
 /**微博数组，里面存放都是WBStatus模型，每一个WBStatus模型都是一条微博*/
@@ -50,7 +52,7 @@
     [self upRefreshStatus];
     
     // 获得未读数
-    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(setupUnreadCount) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(setupUnreadCount) userInfo:nil repeats:YES];
     //不管主线程是否在处理其他时间，都会抽取时间处理下timer
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
@@ -309,21 +311,10 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
-    //取出这行对应的微博字典模型
-    WBStatus *status = self.statuses[indexPath.row];
-    //取出用户字典
-    WBUser *user = status.user;
-    //设置用户昵称
-    cell.textLabel.text = user.name;
-    //设置微博内容
-    cell.detailTextLabel.text = status.text;
-    NSString *imageUrl = user.profile_image_url;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:imageUrl] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    WBStatusCell *cell = [WBStatusCell cellWithTableView:tableView];
+    
+    //传递模型
+    cell.statusFrame = self.statuses[indexPath.row];
     
     return cell;
 }

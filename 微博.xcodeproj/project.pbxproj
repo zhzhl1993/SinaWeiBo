@@ -33,6 +33,8 @@
 		F95AE6C91D36642E00EF30E2 /* ZLDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6C81D36642E00EF30E2 /* ZLDropDownMenu.m */; };
 		F95AE6CC1D3667AE00EF30E2 /* WBTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6CB1D3667AE00EF30E2 /* WBTitleMenuViewController.m */; };
 		F95AE6CF1D36720300EF30E2 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6CE1D36720300EF30E2 /* WBTabBar.m */; };
+		F9695D071D699DF600303B6A /* WBStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9695D061D699DF600303B6A /* WBStatusCell.m */; };
+		F9695D0A1D69A71800303B6A /* WBStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F9695D091D69A71800303B6A /* WBStatusFrame.m */; };
 		F9AB68471D5957E2006A4D66 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB68461D5957E2006A4D66 /* UIWindow+Extension.m */; };
 		F9B4AEF91D3A63310089CF45 /* NewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B4AEF81D3A63310089CF45 /* NewFeatureController.m */; };
 		F9DC80051D56D8BB0005FC19 /* WBOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DC80041D56D8BB0005FC19 /* WBOAuthViewController.m */; };
@@ -147,6 +149,10 @@
 		F95AE6CB1D3667AE00EF30E2 /* WBTitleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleMenuViewController.m; sourceTree = "<group>"; };
 		F95AE6CD1D36720300EF30E2 /* WBTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTabBar.h; sourceTree = "<group>"; };
 		F95AE6CE1D36720300EF30E2 /* WBTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTabBar.m; sourceTree = "<group>"; };
+		F9695D051D699DF600303B6A /* WBStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusCell.h; sourceTree = "<group>"; };
+		F9695D061D699DF600303B6A /* WBStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusCell.m; sourceTree = "<group>"; };
+		F9695D081D69A71800303B6A /* WBStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusFrame.h; sourceTree = "<group>"; };
+		F9695D091D69A71800303B6A /* WBStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusFrame.m; sourceTree = "<group>"; };
 		F9AB68451D5957E2006A4D66 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
 		F9AB68461D5957E2006A4D66 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		F9B4AEF71D3A63310089CF45 /* NewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureController.h; sourceTree = "<group>"; };
@@ -537,6 +543,8 @@
 				F945A9871D5F4EE000785A33 /* WBUser.m */,
 				F945A9891D5F522B00785A33 /* WBStatus.h */,
 				F945A98A1D5F522B00785A33 /* WBStatus.m */,
+				F9695D081D69A71800303B6A /* WBStatusFrame.h */,
+				F9695D091D69A71800303B6A /* WBStatusFrame.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -556,6 +564,8 @@
 				F928003B1D65490F00A478E3 /* WBLoadMoreFooter.h */,
 				F928003C1D65490F00A478E3 /* WBLoadMoreFooter.m */,
 				F928003E1D65493900A478E3 /* WBLoadMoreFooter.xib */,
+				F9695D051D699DF600303B6A /* WBStatusCell.h */,
+				F9695D061D699DF600303B6A /* WBStatusCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -903,6 +913,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9695D0A1D69A71800303B6A /* WBStatusFrame.m in Sources */,
 				F9E843C21D197ADF001124B2 /* main.m in Sources */,
 				F945A97E1D5F4C0200785A33 /* SDWebImagePrefetcher.m in Sources */,
 				F945A9851D5F4C0200785A33 /* UIView+WebCacheOperation.m in Sources */,
@@ -937,6 +948,7 @@
 				F945A97D1D5F4C0200785A33 /* SDWebImageManager.m in Sources */,
 				F9DC80051D56D8BB0005FC19 /* WBOAuthViewController.m in Sources */,
 				F9E87FD61D30F1BD0001662B /* Test2ViewController.m in Sources */,
+				F9695D071D699DF600303B6A /* WBStatusCell.m in Sources */,
 				F9F736301D5FF01E003C3331 /* MJIvar.m in Sources */,
 				F9E87FD81D30F1BD0001662B /* testViewController.m in Sources */,
 				F9DC80271D5803080005FC19 /* MBProgressHUD.m in Sources */,
