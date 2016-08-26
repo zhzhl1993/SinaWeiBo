@@ -11,6 +11,7 @@
 #import "WBStatus.h"
 #import "WBUser.h"
 #import "UIImageView+WebCache.h"
+#import "WBPhotoModel.h"
 
 @interface WBStatusCell()
 
@@ -79,20 +80,25 @@
         /** 昵称 */
         UILabel *nameLabel = [[UILabel alloc] init];
         [originalView addSubview:nameLabel];
+        nameLabel.font = WBStatusCellNameFont;
         self.nameLabel = nameLabel;
         
         /** 时间 */
         UILabel *timeLabel = [[UILabel alloc] init];
+        timeLabel.font = WBStatusCellTimeFont;
         [originalView addSubview:timeLabel];
         self.timeLabel = timeLabel;
         
         /** 来源 */
         UILabel *sourceLabel = [[UILabel alloc] init];
+        sourceLabel.font = WBStatusCellSourceFont;
         [originalView addSubview:sourceLabel];
         self.sourceLabel = sourceLabel;
 
         /** 内容 */
         UILabel *contentLabel = [[UILabel alloc] init];
+        contentLabel.font = WBStatusCellContentFont;
+        contentLabel.numberOfLines  = 0;
         [originalView addSubview:contentLabel];
         self.contentLabel = contentLabel;
     }
@@ -115,23 +121,40 @@
     
     
     /** 配图 */
-    self.photoView.frame = statusFrame.photoViewF;
-    self.photoView.backgroundColor = [UIColor redColor];
+    if (status.pic_urls.count) {//有配图
+        self.photoView.frame = statusFrame.photoViewF;
+        WBPhotoModel *photo = [status.pic_urls lastObject];
+        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        self.photoView.hidden = NO;
+    }else{
+        self.photoView.hidden = YES;
+    }
+    
     
     /** 会员图标 */
-    self.vipView.frame = statusFrame.vipViewF;
-    self.vipView.image = [UIImage imageNamed:@"common_icon_membership_level1"];
+    if (user.isvip) {
+        self.vipView.hidden = NO;
+        self.vipView.frame = statusFrame.vipViewF;
+        NSString *vipName = [NSString stringWithFormat:@"common_icon_membership_level%d", user.mbrank];
+        self.vipView.image = [UIImage imageNamed:vipName];
+        self.nameLabel.textColor = [UIColor orangeColor];
+    }else{
+        self.vipView.hidden = YES;
+        self.nameLabel.textColor = [UIColor blackColor];
+    }
 
     /** 昵称 */
     self.nameLabel.frame = statusFrame.nameLabelF;
-    self.nameLabel.font = WBStatusCellFont;
     self.nameLabel.text = user.name;
     
     /** 时间 */
     self.timeLabel.frame = statusFrame.timeLabelF;
+    self.timeLabel.text = status.created_at;
+    
     
     /** 来源 */
     self.sourceLabel.frame = statusFrame.sourceLabelF;
+    self.sourceLabel.text = status.source;
     
     /** 内容 */
     self.contentLabel.frame = statusFrame.contentLabelF;

@@ -11,8 +11,14 @@
 
 #import <Foundation/Foundation.h>
 
-/** cell的边界宽度 */
-#define WBStatusCellFont [UIFont systemFontOfSize:13]
+// 昵称字体
+#define WBStatusCellNameFont [UIFont systemFontOfSize:15]
+// 时间字体
+#define WBStatusCellTimeFont [UIFont systemFontOfSize:13]
+// 来源字体
+#define WBStatusCellSourceFont WBStatusCellTimeFont
+// 正文字体
+#define WBStatusCellContentFont [UIFont systemFontOfSize:15]
 
 @class WBStatus;
 

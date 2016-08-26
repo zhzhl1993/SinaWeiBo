@@ -17,4 +17,10 @@
 @property(nonatomic, copy) NSString *text;
 /**object 微博作者的用户字段*/
 @property(nonatomic, strong) WBUser *user;
+/**string 创建时间 */
+@property(nonatomic, copy) NSString *created_at;
+/**string 来源 */
+@property(nonatomic, copy) NSString *source;
+/**NSArray 图片 */
+@property(nonatomic, copy) NSArray *pic_urls;
 @end

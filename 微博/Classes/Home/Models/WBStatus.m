@@ -8,6 +8,12 @@
 
 #import "WBStatus.h"
 #import "WBUser.h"
+#import "WBPhotoModel.h"
+#import "MJExtension.h"
 
 @implementation WBStatus
+
+- (NSDictionary *)objectClassInArray{
+    return @{@"pic_urls": [WBPhotoModel class]};
+}
 @end
