@@ -20,6 +20,10 @@
 // 正文字体
 #define WBStatusCellContentFont [UIFont systemFontOfSize:15]
 
+#pragma mark - retweet被转发微博
+// 转发微博正文字体
+#define WBretweetContentFont [UIFont systemFontOfSize:13]
+
 @class WBStatus;
 
 @interface WBStatusFrame : NSObject
@@ -42,6 +46,14 @@
 @property(nonatomic, assign) CGRect sourceLabelF;
 /** 内容 */
 @property(nonatomic, assign) CGRect contentLabelF;
+
+/** 转发微博 */
+/** 转发微博整体 */
+@property(nonatomic, assign) CGRect retweetViewF;
+/** 转发微博正文 + 昵称 */
+@property(nonatomic, assign) CGRect retweetContentLabelF;
+/** 转发配图 */
+@property(nonatomic, assign) CGRect retweetPhotoViewF;
 /** cell的高度 */
 @property(nonatomic, assign) CGFloat cellHeight;
 @end
