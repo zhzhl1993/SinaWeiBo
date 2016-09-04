@@ -12,7 +12,8 @@
 
 /** cell的边界宽度 */
 #define WBStatusCellBorderW 10
-
+/** cell的间距 */
+#define WBCellSpaceW 15
 @implementation WBStatusFrame
 
 - (CGSize)sizeWithText:(NSString *)text font:(UIFont *)font MaxWidth:(CGFloat)MaxWidth{
@@ -95,6 +96,7 @@
     /** 被转发微博 */
     WBStatus *retweeted_status = status.retweeted_status;
     WBUser *retweeted_status_user = status.user;
+    CGFloat toolViewY = 0;
     if (status.retweeted_status) {
         /** 被转发微博内容 */
         NSString *retweetContent = [NSString stringWithFormat:@"@%@:%@", retweeted_status_user.name, retweeted_status.text];
@@ -120,13 +122,16 @@
         CGFloat retweetViewY = CGRectGetMaxY(self.originalViewF);
         CGFloat retweetViewW = screenWidth;
         self.retweetViewF = CGRectMake(retweetViewX, retweetViewY, retweetViewW, retweetViewH);
-        /** cell的高度 */
-        self.cellHeight = CGRectGetMaxY(self.retweetViewF);
+        toolViewY = CGRectGetMaxY(self.retweetViewF);
     }else{
-        /** cell的高度 */
-        self.cellHeight = CGRectGetMaxY(self.originalViewF);
+        toolViewY = CGRectGetMaxY(self.originalViewF);
     }
+    CGFloat toolViewX = 0;
+    CGFloat toolViewW = screenWidth;
+    CGFloat toolViewH = 35;
+    self.toolViewF = CGRectMake(toolViewX, toolViewY, toolViewW, toolViewH);
     
-    
+    /** cell的高度 */
+    self.cellHeight = CGRectGetMaxY(self.toolViewF) + WBCellSpaceW;
 }
 @end

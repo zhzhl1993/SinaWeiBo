@@ -40,6 +40,10 @@
 @property(nonatomic, weak) UILabel *retweetContentLabel;
 /** 转发配图 */
 @property(nonatomic, weak) UIImageView *retweetPhotoView;
+
+/** 工具条 */
+/** 工具条整体视图 */
+@property(nonatomic, weak) UIView *toolView;
 @end
 
 @implementation WBStatusCell
@@ -51,6 +55,8 @@
     if (!cell) {
         cell = [[WBStatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -77,7 +83,7 @@
 - (void)initRetweetView{
     /** 转发微博整体 */
     UIView *retweetView = [[UIView alloc] init];
-    retweetView.backgroundColor = YYColor(240, 240, 240);
+    retweetView.backgroundColor = YYColor(247, 247, 247);
     [self.contentView addSubview:retweetView];
     self.retweetView = retweetView;
     
@@ -92,6 +98,13 @@
     UIImageView *retweetPhotoView = [[UIImageView alloc] init];
     [retweetView addSubview:retweetPhotoView];
     self.retweetPhotoView = retweetPhotoView;
+    
+
+    /** 工具条 */
+    UIView *toolView = [[UIView alloc] init];
+    toolView.backgroundColor = [UIColor redColor];
+    [self.contentView addSubview:toolView];
+    self.toolView = toolView;
 }
 /**
  *  原创微博
@@ -99,6 +112,7 @@
 - (void)initOriginView{
     /** 原创微博整体视图 */
     UIView *originalView = [[UIView alloc] init];
+    originalView.backgroundColor = [UIColor whiteColor];
     [self.contentView addSubview:originalView];
     self.originalView = originalView;
     
@@ -226,6 +240,9 @@
     }else{
         self.retweetView.hidden = YES;
     }
+    
+    /** 工具条 */
+    self.toolView.frame = statusFrame.toolViewF;
 }
 
 @end
