@@ -24,6 +24,9 @@
 // 转发微博正文字体
 #define WBretweetContentFont [UIFont systemFontOfSize:13]
 
+/** cell的间距 */
+#define WBCellSpaceW 15
+
 @class WBStatus;
 
 @interface WBStatusFrame : NSObject

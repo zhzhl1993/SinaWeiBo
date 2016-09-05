@@ -39,6 +39,7 @@
 - (void)viewDidLoad {
     
     [super viewDidLoad];
+    self.tableView.backgroundColor = YYColor(211, 211, 211);
     
     //设置导航栏上的内容
     [self setupNav];
@@ -314,7 +315,6 @@
  */
 - (void)setupNav{
     
-    self.tableView.backgroundColor = YYColor(211, 211, 211);
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(friendsearch) image: @"navigationbar_friendsearch" highImage: @"navigationbar_friendsearch_highlighted"];
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(pop) image:@"navigationbar_pop" highImage:@"navigationbar_pop_highlighted"];
     

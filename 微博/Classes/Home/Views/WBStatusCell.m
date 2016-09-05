@@ -12,6 +12,7 @@
 #import "WBUser.h"
 #import "UIImageView+WebCache.h"
 #import "WBPhotoModel.h"
+#import "WBStatusToolbar.h"
 
 @interface WBStatusCell()
 
@@ -43,7 +44,7 @@
 
 /** 工具条 */
 /** 工具条整体视图 */
-@property(nonatomic, weak) UIView *toolView;
+@property(nonatomic, weak) WBStatusToolbar *toolView;
 @end
 
 @implementation WBStatusCell
@@ -55,7 +56,6 @@
     if (!cell) {
         cell = [[WBStatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
@@ -67,16 +67,28 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        
+        //选中样式
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         /** 原创微博 */
         [self initOriginView];
         
         /** 转发微博 */
         [self initRetweetView];
+        
+        /** 创建toolbar */
+        [self setupToolBar];
     }
     return self;
 }
 
+/** 创建toolbar */
+- (void)setupToolBar{
+    
+    /** 工具条 */
+    WBStatusToolbar *toolView = [WBStatusToolbar toolbar];
+    [self.contentView addSubview:toolView];
+    self.toolView = toolView;
+}
 /**
  *  转发微博
  */
@@ -98,13 +110,7 @@
     UIImageView *retweetPhotoView = [[UIImageView alloc] init];
     [retweetView addSubview:retweetPhotoView];
     self.retweetPhotoView = retweetPhotoView;
-    
 
-    /** 工具条 */
-    UIView *toolView = [[UIView alloc] init];
-    toolView.backgroundColor = [UIColor redColor];
-    [self.contentView addSubview:toolView];
-    self.toolView = toolView;
 }
 /**
  *  原创微博
@@ -245,4 +251,11 @@
     self.toolView.frame = statusFrame.toolViewF;
 }
 
+
+////将cell下移
+//- (void)setFrame:(CGRect)frame{
+//    
+//    frame.origin.y += WBCellSpaceW;
+//    [super setFrame:frame];
+//}
 @end

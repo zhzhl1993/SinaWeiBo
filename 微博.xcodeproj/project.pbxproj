@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F928003D1D65490F00A478E3 /* WBLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F928003C1D65490F00A478E3 /* WBLoadMoreFooter.m */; };
 		F928003F1D65493900A478E3 /* WBLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F928003E1D65493900A478E3 /* WBLoadMoreFooter.xib */; };
+		F9426A0E1D7DA7D400076C9A /* WBStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = F9426A0D1D7DA7D400076C9A /* WBStatusToolbar.m */; };
 		F945A94D1D5ECABD00785A33 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = F945A94C1D5ECABD00785A33 /* Foundation+Log.m */; };
 		F945A9531D5EFF8200785A33 /* WBTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F945A9521D5EFF8200785A33 /* WBTitleButton.m */; };
 		F945A9761D5F4C0200785A33 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = F945A9561D5F4C0200785A33 /* MKAnnotationView+WebCache.m */; };
@@ -102,6 +103,8 @@
 		F928003B1D65490F00A478E3 /* WBLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBLoadMoreFooter.h; sourceTree = "<group>"; };
 		F928003C1D65490F00A478E3 /* WBLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBLoadMoreFooter.m; sourceTree = "<group>"; };
 		F928003E1D65493900A478E3 /* WBLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBLoadMoreFooter.xib; sourceTree = "<group>"; };
+		F9426A0C1D7DA7D400076C9A /* WBStatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusToolbar.h; sourceTree = "<group>"; };
+		F9426A0D1D7DA7D400076C9A /* WBStatusToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusToolbar.m; sourceTree = "<group>"; };
 		F945A94C1D5ECABD00785A33 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
 		F945A9511D5EFF8200785A33 /* WBTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTitleButton.h; sourceTree = "<group>"; };
 		F945A9521D5EFF8200785A33 /* WBTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTitleButton.m; sourceTree = "<group>"; };
@@ -571,6 +574,8 @@
 				F928003E1D65493900A478E3 /* WBLoadMoreFooter.xib */,
 				F9695D051D699DF600303B6A /* WBStatusCell.h */,
 				F9695D061D699DF600303B6A /* WBStatusCell.m */,
+				F9426A0C1D7DA7D400076C9A /* WBStatusToolbar.h */,
+				F9426A0D1D7DA7D400076C9A /* WBStatusToolbar.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -959,6 +964,7 @@
 				F9DC80271D5803080005FC19 /* MBProgressHUD.m in Sources */,
 				F945A97C1D5F4C0200785A33 /* SDWebImageDownloaderOperation.m in Sources */,
 				F9F7362E1D5FF01E003C3331 /* MJConst.m in Sources */,
+				F9426A0E1D7DA7D400076C9A /* WBStatusToolbar.m in Sources */,
 				F9DC801E1D5763BD0005FC19 /* WBAccountModel.m in Sources */,
 				F9E87FD31D30F1BD0001662B /* AppDelegate.m in Sources */,
 				F928003D1D65490F00A478E3 /* WBLoadMoreFooter.m in Sources */,
