@@ -16,4 +16,5 @@
 - (NSDictionary *)objectClassInArray{
     return @{@"pic_urls": [WBPhotoModel class]};
 }
+
 @end

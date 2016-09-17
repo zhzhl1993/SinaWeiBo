@@ -163,6 +163,7 @@
     [originalView addSubview:contentLabel];
     self.contentLabel = contentLabel;
 }
+
 - (void)setStatusFrame:(WBStatusFrame *)statusFrame{
     
     _statusFrame = statusFrame;
@@ -249,6 +250,7 @@
     
     /** 工具条 */
     self.toolView.frame = statusFrame.toolViewF;
+    self.toolView.status = status;
 }
 
 

@@ -26,4 +26,16 @@
 /** 转发微博 */
 @property(nonatomic, strong) WBStatus *retweeted_status;
 
+/*
+ reposts_count	int	转发数
+ comments_count	int	评论数
+ attitudes_count
+ */
+/** 转发数 */
+@property(nonatomic, assign) int reposts_count;
+/** 评论数 */
+@property(nonatomic, assign) int comments_count;
+/** 表态数 */
+@property(nonatomic, assign) int attitudes_count;
+
 @end

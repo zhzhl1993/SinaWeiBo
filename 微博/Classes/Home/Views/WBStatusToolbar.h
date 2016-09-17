@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class WBStatus;
 
 @interface WBStatusToolbar : UIView
+@property(nonatomic, strong) WBStatus *status;
 
 + (instancetype)toolbar;
 @end
