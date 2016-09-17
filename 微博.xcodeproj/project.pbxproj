@@ -39,6 +39,9 @@
 		F997001F1D6FAD0B00803B49 /* WBPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F997001E1D6FAD0B00803B49 /* WBPhotoModel.m */; };
 		F9AB68471D5957E2006A4D66 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB68461D5957E2006A4D66 /* UIWindow+Extension.m */; };
 		F9B4AEF91D3A63310089CF45 /* NewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B4AEF81D3A63310089CF45 /* NewFeatureController.m */; };
+		F9D75DD81D8D6B3300FB5DBF /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D75DD71D8D6B3300FB5DBF /* NSDate+Extension.m */; };
+		F9D75DDB1D8D757400FB5DBF /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D75DDA1D8D757400FB5DBF /* NSString+Extension.m */; };
+		F9D75DDE1D8D7B9D00FB5DBF /* WBStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D75DDD1D8D7B9D00FB5DBF /* WBStatusPhotosView.m */; };
 		F9DC80051D56D8BB0005FC19 /* WBOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DC80041D56D8BB0005FC19 /* WBOAuthViewController.m */; };
 		F9DC80141D56F2E50005FC19 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DC80081D56F2E50005FC19 /* AFHTTPSessionManager.m */; };
 		F9DC80151D56F2E50005FC19 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DC800B1D56F2E50005FC19 /* AFNetworkReachabilityManager.m */; };
@@ -163,6 +166,12 @@
 		F9AB68461D5957E2006A4D66 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		F9B4AEF71D3A63310089CF45 /* NewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureController.h; sourceTree = "<group>"; };
 		F9B4AEF81D3A63310089CF45 /* NewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureController.m; sourceTree = "<group>"; };
+		F9D75DD61D8D6B3300FB5DBF /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		F9D75DD71D8D6B3300FB5DBF /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		F9D75DD91D8D757400FB5DBF /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		F9D75DDA1D8D757400FB5DBF /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		F9D75DDC1D8D7B9D00FB5DBF /* WBStatusPhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusPhotosView.h; sourceTree = "<group>"; };
+		F9D75DDD1D8D7B9D00FB5DBF /* WBStatusPhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusPhotosView.m; sourceTree = "<group>"; };
 		F9DC80031D56D8BB0005FC19 /* WBOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBOAuthViewController.h; path = "微博/Classes/OAuth授权/Controller/WBOAuthViewController.h"; sourceTree = SOURCE_ROOT; };
 		F9DC80041D56D8BB0005FC19 /* WBOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBOAuthViewController.m; path = "微博/Classes/OAuth授权/Controller/WBOAuthViewController.m"; sourceTree = SOURCE_ROOT; };
 		F9DC80071D56F2E50005FC19 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -567,6 +576,8 @@
 		F9E87FAC1D30F1BD0001662B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F9D75DDC1D8D7B9D00FB5DBF /* WBStatusPhotosView.h */,
+				F9D75DDD1D8D7B9D00FB5DBF /* WBStatusPhotosView.m */,
 				F945A9511D5EFF8200785A33 /* WBTitleButton.h */,
 				F945A9521D5EFF8200785A33 /* WBTitleButton.m */,
 				F928003B1D65490F00A478E3 /* WBLoadMoreFooter.h */,
@@ -597,6 +608,8 @@
 		F9E87FAE1D30F1BD0001662B /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				F9D75DD61D8D6B3300FB5DBF /* NSDate+Extension.h */,
+				F9D75DD71D8D6B3300FB5DBF /* NSDate+Extension.m */,
 				F945A94C1D5ECABD00785A33 /* Foundation+Log.m */,
 				F9E87FDF1D327FC80001662B /* UIView+Extension.h */,
 				F9E87FE01D327FC80001662B /* UIView+Extension.m */,
@@ -604,6 +617,8 @@
 				F9E87FDB1D30F9980001662B /* UIBarButtonItem+Extension.m */,
 				F9AB68451D5957E2006A4D66 /* UIWindow+Extension.h */,
 				F9AB68461D5957E2006A4D66 /* UIWindow+Extension.m */,
+				F9D75DD91D8D757400FB5DBF /* NSString+Extension.h */,
+				F9D75DDA1D8D757400FB5DBF /* NSString+Extension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -925,11 +940,13 @@
 			files = (
 				F9695D0A1D69A71800303B6A /* WBStatusFrame.m in Sources */,
 				F9E843C21D197ADF001124B2 /* main.m in Sources */,
+				F9D75DD81D8D6B3300FB5DBF /* NSDate+Extension.m in Sources */,
 				F945A97E1D5F4C0200785A33 /* SDWebImagePrefetcher.m in Sources */,
 				F945A9851D5F4C0200785A33 /* UIView+WebCacheOperation.m in Sources */,
 				F945A9761D5F4C0200785A33 /* MKAnnotationView+WebCache.m in Sources */,
 				F9F736331D5FF01E003C3331 /* MJType.m in Sources */,
 				F945A9531D5EFF8200785A33 /* WBTitleButton.m in Sources */,
+				F9D75DDB1D8D757400FB5DBF /* NSString+Extension.m in Sources */,
 				F9DC80141D56F2E50005FC19 /* AFHTTPSessionManager.m in Sources */,
 				F9F736341D5FF01E003C3331 /* MJTypeEncoding.m in Sources */,
 				F9DC80151D56F2E50005FC19 /* AFNetworkReachabilityManager.m in Sources */,
@@ -953,6 +970,7 @@
 				F9F736311D5FF01E003C3331 /* MJMember.m in Sources */,
 				F945A9831D5F4C0200785A33 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F9DC80191D56F2E50005FC19 /* AFURLSessionManager.m in Sources */,
+				F9D75DDE1D8D7B9D00FB5DBF /* WBStatusPhotosView.m in Sources */,
 				F945A94D1D5ECABD00785A33 /* Foundation+Log.m in Sources */,
 				F945A97A1D5F4C0200785A33 /* SDWebImageDecoder.m in Sources */,
 				F945A97D1D5F4C0200785A33 /* SDWebImageManager.m in Sources */,

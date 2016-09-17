@@ -110,7 +110,7 @@
     UIImageView *retweetPhotoView = [[UIImageView alloc] init];
     [retweetView addSubview:retweetPhotoView];
     self.retweetPhotoView = retweetPhotoView;
-
+    
 }
 /**
  *  原创微博
@@ -147,6 +147,7 @@
     /** 时间 */
     UILabel *timeLabel = [[UILabel alloc] init];
     timeLabel.font = WBStatusCellTimeFont;
+    timeLabel.textColor = [UIColor orangeColor];
     [originalView addSubview:timeLabel];
     self.timeLabel = timeLabel;
     
@@ -178,7 +179,6 @@
     self.iconView.frame = statusFrame.iconViewF;
     [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
     
-    
     /** 配图 */
     if (status.pic_urls.count) {//有配图
         self.photoView.frame = statusFrame.photoViewF;
@@ -188,7 +188,6 @@
     }else{
         self.photoView.hidden = YES;
     }
-    
     
     /** 会员图标 */
     if (user.isvip) {
@@ -201,18 +200,24 @@
         self.vipView.hidden = YES;
         self.nameLabel.textColor = [UIColor blackColor];
     }
-
+    
     /** 昵称 */
     self.nameLabel.frame = statusFrame.nameLabelF;
     self.nameLabel.text = user.name;
     
     /** 时间 */
-    self.timeLabel.frame = statusFrame.timeLabelF;
-    self.timeLabel.text = status.created_at;
-    
+    NSString *time = status.created_at;
+    CGFloat timeX = statusFrame.nameLabelF.origin.x;
+    CGFloat timeY = CGRectGetMaxY(statusFrame.nameLabelF) + WBStatusCellBorderW;
+    CGSize timeSize = [time sizeWithFont:WBStatusCellTimeFont];
+    self.timeLabel.frame = (CGRect){{timeX, timeY}, timeSize};
+    self.timeLabel.text = time;
     
     /** 来源 */
-    self.sourceLabel.frame = statusFrame.sourceLabelF;
+    CGFloat sourceX = CGRectGetMaxX(self.timeLabel.frame) + WBStatusCellBorderW;
+    CGFloat sourceY = timeY;
+    CGSize sourceSize = [status.source sizeWithFont:WBStatusCellSourceFont];
+    self.sourceLabel.frame = (CGRect){{sourceX, sourceY}, sourceSize};
     self.sourceLabel.text = status.source;
     
     /** 内容 */
@@ -256,7 +261,7 @@
 
 ////将cell下移
 //- (void)setFrame:(CGRect)frame{
-//    
+//
 //    frame.origin.y += WBCellSpaceW;
 //    [super setFrame:frame];
 //}

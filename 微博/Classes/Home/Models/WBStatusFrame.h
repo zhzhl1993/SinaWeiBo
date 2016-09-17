@@ -26,6 +26,8 @@
 
 /** cell的间距 */
 #define WBCellSpaceW 15
+/** cell的边界宽度 */
+#define WBStatusCellBorderW 10
 
 @class WBStatus;
 
