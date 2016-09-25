@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F918E38A1D92C716001C6D2D /* WBStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F918E3891D92C716001C6D2D /* WBStatusPhotoView.m */; };
+		F918E38D1D92C7F5001C6D2D /* WBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F918E38C1D92C7F5001C6D2D /* WBPhoto.m */; };
 		F928003D1D65490F00A478E3 /* WBLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F928003C1D65490F00A478E3 /* WBLoadMoreFooter.m */; };
 		F928003F1D65493900A478E3 /* WBLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F928003E1D65493900A478E3 /* WBLoadMoreFooter.xib */; };
+		F9347F451D980AEF00D4EF0F /* WBIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9347F441D980AEF00D4EF0F /* WBIconView.m */; };
 		F9426A0E1D7DA7D400076C9A /* WBStatusToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = F9426A0D1D7DA7D400076C9A /* WBStatusToolbar.m */; };
 		F945A94D1D5ECABD00785A33 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = F945A94C1D5ECABD00785A33 /* Foundation+Log.m */; };
 		F945A9531D5EFF8200785A33 /* WBTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F945A9521D5EFF8200785A33 /* WBTitleButton.m */; };
@@ -103,9 +106,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F918E3881D92C716001C6D2D /* WBStatusPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusPhotoView.h; sourceTree = "<group>"; };
+		F918E3891D92C716001C6D2D /* WBStatusPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusPhotoView.m; sourceTree = "<group>"; };
+		F918E38B1D92C7F5001C6D2D /* WBPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhoto.h; sourceTree = "<group>"; };
+		F918E38C1D92C7F5001C6D2D /* WBPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhoto.m; sourceTree = "<group>"; };
 		F928003B1D65490F00A478E3 /* WBLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBLoadMoreFooter.h; sourceTree = "<group>"; };
 		F928003C1D65490F00A478E3 /* WBLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBLoadMoreFooter.m; sourceTree = "<group>"; };
 		F928003E1D65493900A478E3 /* WBLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBLoadMoreFooter.xib; sourceTree = "<group>"; };
+		F9347F431D980AEF00D4EF0F /* WBIconView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBIconView.h; sourceTree = "<group>"; };
+		F9347F441D980AEF00D4EF0F /* WBIconView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBIconView.m; sourceTree = "<group>"; };
 		F9426A0C1D7DA7D400076C9A /* WBStatusToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusToolbar.h; sourceTree = "<group>"; };
 		F9426A0D1D7DA7D400076C9A /* WBStatusToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusToolbar.m; sourceTree = "<group>"; };
 		F945A94C1D5ECABD00785A33 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
@@ -562,6 +571,8 @@
 				F945A98A1D5F522B00785A33 /* WBStatus.m */,
 				F9695D081D69A71800303B6A /* WBStatusFrame.h */,
 				F9695D091D69A71800303B6A /* WBStatusFrame.m */,
+				F918E38B1D92C7F5001C6D2D /* WBPhoto.h */,
+				F918E38C1D92C7F5001C6D2D /* WBPhoto.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -578,6 +589,8 @@
 			children = (
 				F9D75DDC1D8D7B9D00FB5DBF /* WBStatusPhotosView.h */,
 				F9D75DDD1D8D7B9D00FB5DBF /* WBStatusPhotosView.m */,
+				F918E3881D92C716001C6D2D /* WBStatusPhotoView.h */,
+				F918E3891D92C716001C6D2D /* WBStatusPhotoView.m */,
 				F945A9511D5EFF8200785A33 /* WBTitleButton.h */,
 				F945A9521D5EFF8200785A33 /* WBTitleButton.m */,
 				F928003B1D65490F00A478E3 /* WBLoadMoreFooter.h */,
@@ -670,6 +683,8 @@
 				F95AE6C81D36642E00EF30E2 /* ZLDropDownMenu.m */,
 				F95AE6CD1D36720300EF30E2 /* WBTabBar.h */,
 				F95AE6CE1D36720300EF30E2 /* WBTabBar.m */,
+				F9347F431D980AEF00D4EF0F /* WBIconView.h */,
+				F9347F441D980AEF00D4EF0F /* WBIconView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -870,6 +885,7 @@
 				TargetAttributes = {
 					F9E843BC1D197ADF001124B2 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = A44T64982D;
 					};
 					F9E843D51D197ADF001124B2 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -972,7 +988,9 @@
 				F9DC80191D56F2E50005FC19 /* AFURLSessionManager.m in Sources */,
 				F9D75DDE1D8D7B9D00FB5DBF /* WBStatusPhotosView.m in Sources */,
 				F945A94D1D5ECABD00785A33 /* Foundation+Log.m in Sources */,
+				F9347F451D980AEF00D4EF0F /* WBIconView.m in Sources */,
 				F945A97A1D5F4C0200785A33 /* SDWebImageDecoder.m in Sources */,
+				F918E38D1D92C7F5001C6D2D /* WBPhoto.m in Sources */,
 				F945A97D1D5F4C0200785A33 /* SDWebImageManager.m in Sources */,
 				F9DC80051D56D8BB0005FC19 /* WBOAuthViewController.m in Sources */,
 				F9E87FD61D30F1BD0001662B /* Test2ViewController.m in Sources */,
@@ -981,6 +999,7 @@
 				F9E87FD81D30F1BD0001662B /* testViewController.m in Sources */,
 				F9DC80271D5803080005FC19 /* MBProgressHUD.m in Sources */,
 				F945A97C1D5F4C0200785A33 /* SDWebImageDownloaderOperation.m in Sources */,
+				F918E38A1D92C716001C6D2D /* WBStatusPhotoView.m in Sources */,
 				F9F7362E1D5FF01E003C3331 /* MJConst.m in Sources */,
 				F9426A0E1D7DA7D400076C9A /* WBStatusToolbar.m in Sources */,
 				F9DC801E1D5763BD0005FC19 /* WBAccountModel.m in Sources */,
@@ -1137,12 +1156,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/微博/WBPrefix.pch";
 				INFOPLIST_FILE = "微博/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.edu.cuit.--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1152,12 +1173,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/微博/WBPrefix.pch";
 				INFOPLIST_FILE = "微博/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "cn.edu.cuit.--";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

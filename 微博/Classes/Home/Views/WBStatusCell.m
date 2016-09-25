@@ -13,6 +13,8 @@
 #import "UIImageView+WebCache.h"
 #import "WBPhotoModel.h"
 #import "WBStatusToolbar.h"
+#import "WBStatusPhotosView.h"
+#import "WBIconView.h"
 
 @interface WBStatusCell()
 
@@ -20,9 +22,9 @@
 /** 原创微博整体视图 */
 @property(nonatomic, weak) UIView *originalView;
 /** 头像 */
-@property(nonatomic, weak) UIImageView *iconView;
+@property(nonatomic, weak) WBIconView *iconView;
 /** 配图 */
-@property(nonatomic, weak) UIImageView *photoView;
+@property(nonatomic, weak) WBStatusPhotosView *photosView;
 /** 会员图标 */
 @property(nonatomic, weak) UIImageView *vipView;
 /** 昵称 */
@@ -40,7 +42,7 @@
 /** 转发微博正文 + 昵称 */
 @property(nonatomic, weak) UILabel *retweetContentLabel;
 /** 转发配图 */
-@property(nonatomic, weak) UIImageView *retweetPhotoView;
+@property(nonatomic, weak) WBStatusPhotosView *retweetPhotoView;
 
 /** 工具条 */
 /** 工具条整体视图 */
@@ -107,9 +109,9 @@
     self.retweetContentLabel = retweetContentLabel;
     
     /** 转发配图 */
-    UIImageView *retweetPhotoView = [[UIImageView alloc] init];
-    [retweetView addSubview:retweetPhotoView];
-    self.retweetPhotoView = retweetPhotoView;
+    WBStatusPhotosView *retweetPhotosView = [[WBStatusPhotosView alloc] init];
+    [retweetView addSubview:retweetPhotosView];
+    self.retweetPhotoView = retweetPhotosView;
     
 }
 /**
@@ -123,14 +125,14 @@
     self.originalView = originalView;
     
     /** 头像 */
-    UIImageView *iconView = [[UIImageView alloc] init];
+    WBIconView *iconView = [[WBIconView alloc] init];
     [originalView addSubview:iconView];
     self.iconView = iconView;
     
     /** 配图 */
-    UIImageView *photoView = [[UIImageView alloc] init];
-    [originalView addSubview:photoView];
-    self.photoView = photoView;
+    WBStatusPhotosView *photosView = [[WBStatusPhotosView alloc] init];
+    [originalView addSubview:photosView];
+    self.photosView = photosView;
     
     /** 会员图标 */
     UIImageView *vipView = [[UIImageView alloc] init];
@@ -177,16 +179,15 @@
     
     /** 头像 */
     self.iconView.frame = statusFrame.iconViewF;
-    [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
+    self.iconView.user = user;
     
     /** 配图 */
     if (status.pic_urls.count) {//有配图
-        self.photoView.frame = statusFrame.photoViewF;
-        WBPhotoModel *photo = [status.pic_urls lastObject];
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
-        self.photoView.hidden = NO;
+        self.photosView.frame = statusFrame.photosViewF;
+        self.photosView.photos = status.pic_urls;
+        self.photosView.hidden = NO;
     }else{
-        self.photoView.hidden = YES;
+        self.photosView.hidden = YES;
     }
     
     /** 会员图标 */
@@ -239,9 +240,8 @@
         
         /** 配图 */
         if (retweeted_status.pic_urls.count) {//有配图
-            self.retweetPhotoView.frame = statusFrame.retweetPhotoViewF;
-            WBPhotoModel *photo = [retweeted_status.pic_urls lastObject];
-            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            self.retweetPhotoView.frame = statusFrame.retweetPhotosViewF;
+            self.retweetPhotoView.photos = retweeted_status.pic_urls;
             self.retweetPhotoView.hidden = NO;
         }else{//无配图
             self.retweetPhotoView.hidden = YES;

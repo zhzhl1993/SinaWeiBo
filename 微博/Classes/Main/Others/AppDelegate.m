@@ -59,12 +59,6 @@
     [mgr.imageCache clearMemory];
 }
 
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
 /**
  *  当程序进入后台的时候调用
  */
@@ -77,7 +71,7 @@
      *  3.后台暂停状态，停止一切动画、定时器、多媒体、联网操作
      *  4.后台运行状态
      */
-    UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
+    __block UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
         
         [application endBackgroundTask:task];
     }];

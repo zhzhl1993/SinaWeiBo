@@ -9,8 +9,13 @@
 #import "WBStatusFrame.h"
 #import "WBStatus.h"
 #import "WBUser.h"
+#import "WBStatusPhotosView.h"
 
 @implementation WBStatusFrame
+
+- (CGSize)photosSizeWithCount:(NSInteger)count{
+    return CGSizeMake(100, 50);
+}
 
 - (void)setStatus:(WBStatus *)status{
     
@@ -62,15 +67,15 @@
     /** 配图 */
     CGFloat originH = 0;
     if (status.pic_urls.count) {//有配图
-        CGFloat photoWH = 100;
-        CGFloat photoX = contentX;
-        CGFloat photoY = CGRectGetMaxY(self.contentLabelF) + WBStatusCellBorderW;
-        self.photoViewF = CGRectMake(photoX, photoY, photoWH, photoWH);
-        originH = CGRectGetMaxY(self.photoViewF) + WBStatusCellBorderW;
+        CGFloat photosX = contentX;
+        CGFloat photosY = CGRectGetMaxY(self.contentLabelF) + WBStatusCellBorderW;
+        CGSize photosSize = [WBStatusPhotosView sizeWithCount:status.pic_urls.count];
+        self.photosViewF = (CGRect){{photosX, photosY}, photosSize};
+        originH = CGRectGetMaxY(self.photosViewF) + WBStatusCellBorderW;
     }else{//没有配图
       originH = CGRectGetMaxY(self.contentLabelF) + WBStatusCellBorderW;
     }
-    
+    //18394036039
     /** 原创微博整体视图 */
     CGFloat originX = 0;
     CGFloat originY = WBCellSpaceW;
@@ -93,11 +98,11 @@
         /** 被转发微博配图 */
         CGFloat retweetViewH = 0;
         if (retweeted_status.pic_urls.count) {//被转发微博有配图
-            CGFloat retweetPhotoWH = 100;
-            CGFloat retweetPhotoX = retweetContentX;
-            CGFloat retweetPhotoY = CGRectGetMaxY(self.retweetContentLabelF) + WBStatusCellBorderW;
-            self.retweetPhotoViewF = CGRectMake(retweetPhotoX, retweetPhotoY, retweetPhotoWH, retweetPhotoWH);
-            retweetViewH = CGRectGetMaxY(self.retweetPhotoViewF) + WBStatusCellBorderW;
+            CGFloat retweetPhotosX = retweetContentX;
+            CGFloat retweetPhotosY = CGRectGetMaxY(self.retweetContentLabelF) + WBStatusCellBorderW;
+            CGSize retweetSize = [WBStatusPhotosView sizeWithCount:retweeted_status.pic_urls.count];
+            self.retweetPhotosViewF = (CGRect){{retweetPhotosX, retweetPhotosY}, retweetSize};
+            retweetViewH = CGRectGetMaxY(self.retweetPhotosViewF) + WBStatusCellBorderW;
         }else{//被转发微博没有配图
         
             retweetViewH = CGRectGetMaxY(self.contentLabelF) + WBStatusCellBorderW;

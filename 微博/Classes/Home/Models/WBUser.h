@@ -7,6 +7,14 @@
 //  用户信息模型
 
 #import <Foundation/Foundation.h>
+typedef enum{
+    WBUserVerifiedTypeNone = -1, // 没有任何认证
+    WBUserVerifiedPersonal = 0,  // 个人认证
+    WBUserVerifiedOrgEnterprice = 2, // 企业官方：CSDN、EOE、搜狐新闻客户端
+    WBUserVerifiedOrgMedia = 3, // 媒体官方：程序员杂志、苹果汇
+    WBUserVerifiedOrgWebsite = 5, // 网站官方：猫扑
+    WBUserVerifiedDaren = 220 // 微博达人
+} WBUserVeryfiedType;
 
 @interface WBUser : NSObject
 
@@ -22,4 +30,6 @@
 @property(nonatomic, assign) int mbrank;
 /** 会员等级 */
 @property(nonatomic, assign, getter = isvip) BOOL vip;
+/** 认证类型 */
+@property(nonatomic, assign) WBUserVeryfiedType verified_type;
 @end

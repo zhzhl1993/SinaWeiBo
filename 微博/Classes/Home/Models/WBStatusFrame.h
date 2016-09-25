@@ -40,7 +40,7 @@
 /** 头像 */
 @property(nonatomic, assign) CGRect iconViewF;
 /** 配图 */
-@property(nonatomic, assign) CGRect photoViewF;
+@property(nonatomic, assign) CGRect photosViewF;
 /** 会员图标 */
 @property(nonatomic, assign) CGRect vipViewF;
 /** 昵称 */
@@ -58,10 +58,10 @@
 /** 转发微博正文 + 昵称 */
 @property(nonatomic, assign) CGRect retweetContentLabelF;
 /** 转发配图 */
-@property(nonatomic, assign) CGRect retweetPhotoViewF;
+@property(nonatomic, assign) CGRect retweetPhotosViewF;
 
 /** 工具条 */
-/** 工具条 */
+/** 工具条frame */
 @property(nonatomic, assign) CGRect toolViewF;
 /** cell的高度 */
 @property(nonatomic, assign) CGFloat cellHeight;
