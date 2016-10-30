@@ -23,13 +23,13 @@
     //普通状态下所有显示
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];
-    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13.0];
+    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
     [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     
     //禁止状态下
     NSMutableDictionary *disableTextAttrs = [NSMutableDictionary dictionary];
     disableTextAttrs[NSForegroundColorAttributeName] = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:0.9];
-    disableTextAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:13.0];
+    disableTextAttrs[NSFontAttributeName] = textAttrs[NSFontAttributeName];
     [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
 }
 

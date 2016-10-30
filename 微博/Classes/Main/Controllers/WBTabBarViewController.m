@@ -13,6 +13,7 @@
 #import "DiscoverViewController.h"
 #import "WBNaigationController.h"
 #import "WBTabBar.h"
+#import "ComposeViewController.h"
 
 #define titleColor [UIColor colorWithRed:123/255.0 green:123/255.0 blue:123/255.0 alpha:1]
 #define randomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1]
@@ -89,8 +90,8 @@
 
 - (void)tabBarDidClickPlusButton:(WBTabBar *)tabBar{
     
-    UIViewController *Vc = [[UIViewController alloc] init];
-     Vc.view.backgroundColor = [UIColor redColor];
-    [self presentViewController:Vc animated:YES completion:nil];
+    ComposeViewController *composeVc = [[ComposeViewController alloc] init];
+    WBNaigationController *navi = [[WBNaigationController alloc] initWithRootViewController:composeVc];
+    [self presentViewController:navi animated:YES completion:nil];
 }
 @end
