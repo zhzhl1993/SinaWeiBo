@@ -10,6 +10,7 @@
 		F918E38A1D92C716001C6D2D /* WBStatusPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = F918E3891D92C716001C6D2D /* WBStatusPhotoView.m */; };
 		F918E38D1D92C7F5001C6D2D /* WBPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = F918E38C1D92C7F5001C6D2D /* WBPhoto.m */; };
 		F9190E2A1DC5CA8B005EC692 /* PlaceHolderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9190E291DC5CA8B005EC692 /* PlaceHolderTextView.m */; };
+		F9190E2E1DC6CCD9005EC692 /* WBComposeToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F9190E2D1DC6CCD9005EC692 /* WBComposeToolBar.m */; };
 		F928003D1D65490F00A478E3 /* WBLoadMoreFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = F928003C1D65490F00A478E3 /* WBLoadMoreFooter.m */; };
 		F928003F1D65493900A478E3 /* WBLoadMoreFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = F928003E1D65493900A478E3 /* WBLoadMoreFooter.xib */; };
 		F9347F451D980AEF00D4EF0F /* WBIconView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9347F441D980AEF00D4EF0F /* WBIconView.m */; };
@@ -114,6 +115,8 @@
 		F918E38C1D92C7F5001C6D2D /* WBPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhoto.m; sourceTree = "<group>"; };
 		F9190E281DC5CA8B005EC692 /* PlaceHolderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceHolderTextView.h; sourceTree = "<group>"; };
 		F9190E291DC5CA8B005EC692 /* PlaceHolderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceHolderTextView.m; sourceTree = "<group>"; };
+		F9190E2C1DC6CCD9005EC692 /* WBComposeToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBComposeToolBar.h; sourceTree = "<group>"; };
+		F9190E2D1DC6CCD9005EC692 /* WBComposeToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBComposeToolBar.m; sourceTree = "<group>"; };
 		F928003B1D65490F00A478E3 /* WBLoadMoreFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBLoadMoreFooter.h; sourceTree = "<group>"; };
 		F928003C1D65490F00A478E3 /* WBLoadMoreFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBLoadMoreFooter.m; sourceTree = "<group>"; };
 		F928003E1D65493900A478E3 /* WBLoadMoreFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBLoadMoreFooter.xib; sourceTree = "<group>"; };
@@ -298,6 +301,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F9190E2B1DC6CCA9005EC692 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F9190E2C1DC6CCD9005EC692 /* WBComposeToolBar.h */,
+				F9190E2D1DC6CCD9005EC692 /* WBComposeToolBar.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		F945A9541D5F4C0200785A33 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +398,7 @@
 		F9BC16CD1DC5905F00623C2E /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				F9190E2B1DC6CCA9005EC692 /* View */,
 				F9BC16CE1DC5906000623C2E /* Controller */,
 			);
 			name = Compose;
@@ -1014,6 +1027,7 @@
 				F945A9831D5F4C0200785A33 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F9DC80191D56F2E50005FC19 /* AFURLSessionManager.m in Sources */,
 				F9D75DDE1D8D7B9D00FB5DBF /* WBStatusPhotosView.m in Sources */,
+				F9190E2E1DC6CCD9005EC692 /* WBComposeToolBar.m in Sources */,
 				F945A94D1D5ECABD00785A33 /* Foundation+Log.m in Sources */,
 				F9347F451D980AEF00D4EF0F /* WBIconView.m in Sources */,
 				F945A97A1D5F4C0200785A33 /* SDWebImageDecoder.m in Sources */,

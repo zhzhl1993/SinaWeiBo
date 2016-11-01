@@ -10,10 +10,13 @@
 #import "WBAccountTool.h"
 #import "PlaceHolderTextView.h"
 #import "AFNetworking.h"
+#import "WBComposeToolBar.h"
 
-@interface ComposeViewController ()
+@interface ComposeViewController ()<UITextViewDelegate,WBComposeToolBarDelegate>
 /** 文字输入框 */
 @property(nonatomic, strong) UITextView *textView;
+/** 工具条 */
+@property(nonatomic, strong)  WBComposeToolBar *toolBar;
 @end
 
 @implementation ComposeViewController
@@ -30,6 +33,9 @@
     
     //添加输入控件
     [self setupTextView];
+    
+    //添加工具条
+    [self setupToolBar];
 }
 
 - (void)dealloc{
@@ -38,17 +44,51 @@
 
 #pragma mark - 初始化方法
 /*
+ * 添加工具条
+ */
+- (void)setupToolBar{
+    WBComposeToolBar *toolBar = [[WBComposeToolBar alloc] init];
+    toolBar.width = self.view.width;
+    toolBar.delegate = self;
+    toolBar.height = 44;
+//    self.textView.inputAccessoryView = toolBar;
+    toolBar.y = self.view.height - toolBar.height;
+    self.toolBar = toolBar;
+    [self.view addSubview:toolBar];
+}
+/*
  *添加输入控件
  */
 - (void)setupTextView{
     PlaceHolderTextView *textView = [[PlaceHolderTextView alloc] initWithFrame:self.view.bounds];
     textView.font = [UIFont systemFontOfSize:15];
     textView.placeHolder = @"分享你的新鲜事...";
+    textView.alwaysBounceVertical = YES;
+    textView.delegate = self;
     self.textView = textView;
     [self.view addSubview:textView];
     
-    //监听通知
+    //能输入文本的控件一旦成为第一相应者，就会呼出相应的键盘
+    [textView becomeFirstResponder];
+    //文字改变通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
+    //键盘弹出通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+- (void)keyboardWillChangeFrame:(NSNotification *)notification{
+//    UIKeyboardCenterEndUserInfoKey = NSPoint: {187.5, 538},
+//    UIKeyboardAnimationDurationUserInfoKey = 0.25
+//    UIKeyboardAnimationCurveUserInfoKey = 7,
+    NSDictionary *userInfo = notification.userInfo;
+    //键盘弹出的动画时间
+    double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    //键盘弹出后的frame
+    CGRect keyboardF = [userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    [UIView animateWithDuration:duration animations:^{
+        //工具条的frame
+        self.toolBar.y = keyboardF.origin.y - self.toolBar.height;
+    }];
 }
 /*
  *设置导航栏
@@ -83,6 +123,7 @@
 #pragma mark - 监听方法
 //取消
 - (void)cancel{
+    [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 //发送
@@ -116,5 +157,33 @@
 - (void)textDidChange{
     
     self.navigationItem.rightBarButtonItem.enabled = self.textView.hasText;
+}
+
+#pragma mark - UITextViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    [self.view endEditing:YES];
+}
+
+#pragma mark - WBComposeToolBarDelegate
+- (void)composeToolBar:(WBComposeToolBar *)toolbar didClickButton:(WBComposeToolBarButtonType)buttonType{
+    switch (buttonType) {
+        case WBComposeToolBarButtonCamera://拍照
+            NSLog(@"拍照");
+            break;
+        case WBComposeToolBarButtonPicture://相册
+            NSLog(@"相册");
+            break;
+        case WBComposeToolBarButtonMention://@
+           NSLog(@"@");
+            break;
+        case WBComposeToolBarButtonTrend://#
+            NSLog(@"#");
+            break;
+        case WBComposeToolBarButtonEmotion: //表情
+            
+            break;
+        default:
+            break;
+    }
 }
 @end

@@ -231,7 +231,6 @@
  *  动画提示更新条数
  */
 - (void)showNewStatusCount:(unsigned long)count{
-    
     //刷新成功
     self.tabBarItem.badgeValue = nil;
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
