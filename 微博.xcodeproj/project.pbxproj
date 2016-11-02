@@ -59,6 +59,7 @@
 		F9DC80251D5803080005FC19 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DC80211D5803080005FC19 /* MBProgressHUD+MJ.m */; };
 		F9DC80261D5803080005FC19 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = F9DC80221D5803080005FC19 /* MBProgressHUD.bundle */; };
 		F9DC80271D5803080005FC19 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F9DC80241D5803080005FC19 /* MBProgressHUD.m */; };
+		F9E45F181DCA1F0400155DFC /* WBComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E45F171DCA1F0400155DFC /* WBComposePhotosView.m */; };
 		F9E843C21D197ADF001124B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F9E843C11D197ADF001124B2 /* main.m */; };
 		F9E843CD1D197ADF001124B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9E843CC1D197ADF001124B2 /* Assets.xcassets */; };
 		F9E843D01D197ADF001124B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9E843CE1D197ADF001124B2 /* LaunchScreen.storyboard */; };
@@ -213,6 +214,8 @@
 		F9DC80221D5803080005FC19 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		F9DC80231D5803080005FC19 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		F9DC80241D5803080005FC19 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		F9E45F161DCA1F0400155DFC /* WBComposePhotosView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBComposePhotosView.h; sourceTree = "<group>"; };
+		F9E45F171DCA1F0400155DFC /* WBComposePhotosView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBComposePhotosView.m; sourceTree = "<group>"; };
 		F9E843BD1D197ADF001124B2 /* 微博.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "微博.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9E843C11D197ADF001124B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F9E843CC1D197ADF001124B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -306,6 +309,8 @@
 			children = (
 				F9190E2C1DC6CCD9005EC692 /* WBComposeToolBar.h */,
 				F9190E2D1DC6CCD9005EC692 /* WBComposeToolBar.m */,
+				F9E45F161DCA1F0400155DFC /* WBComposePhotosView.h */,
+				F9E45F171DCA1F0400155DFC /* WBComposePhotosView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1031,6 +1036,7 @@
 				F945A94D1D5ECABD00785A33 /* Foundation+Log.m in Sources */,
 				F9347F451D980AEF00D4EF0F /* WBIconView.m in Sources */,
 				F945A97A1D5F4C0200785A33 /* SDWebImageDecoder.m in Sources */,
+				F9E45F181DCA1F0400155DFC /* WBComposePhotosView.m in Sources */,
 				F918E38D1D92C7F5001C6D2D /* WBPhoto.m in Sources */,
 				F945A97D1D5F4C0200785A33 /* SDWebImageManager.m in Sources */,
 				F9DC80051D56D8BB0005FC19 /* WBOAuthViewController.m in Sources */,
