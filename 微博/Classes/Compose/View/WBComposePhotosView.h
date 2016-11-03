@@ -10,4 +10,7 @@
 
 @interface WBComposePhotosView : UIView
 
+@property(nonatomic, strong,readonly) NSMutableArray *photos;
+
+- (void)addPhoto:(UIImage *)image;
 @end

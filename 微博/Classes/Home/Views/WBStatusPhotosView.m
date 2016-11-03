@@ -31,8 +31,6 @@
     _photos = photos;
     
     int photosCount = photos.count;
-    
-    
     // 创建足够数量的图片控件
     // 这里的self.subviews.count不要单独赋值给其他变量
     while (self.subviews.count < photosCount) {

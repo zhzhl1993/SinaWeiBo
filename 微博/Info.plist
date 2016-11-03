@@ -20,12 +20,21 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>同意该应用打开相机？</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>同意该应用打开相册？</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
 	</array>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -36,10 +45,5 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 </dict>
 </plist>
