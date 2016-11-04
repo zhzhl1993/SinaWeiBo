@@ -19,7 +19,6 @@
     
     //取得所有的item
     UIBarButtonItem *item = [UIBarButtonItem appearance];
-    
     //普通状态下所有显示
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
     textAttrs[NSForegroundColorAttributeName] = [UIColor orangeColor];

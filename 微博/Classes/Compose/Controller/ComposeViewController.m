@@ -12,17 +12,31 @@
 #import "AFNetworking.h"
 #import "WBComposeToolBar.h"
 #import "WBComposePhotosView.h"
+#import "ZLEmotionKeyboard.h"
 
 @interface ComposeViewController ()<UITextViewDelegate,WBComposeToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 /** 文字输入框 */
-@property(nonatomic, strong) UITextView *textView;
+@property(nonatomic, weak) UITextView *textView;
 /** 键盘上工具条 */
-@property(nonatomic, strong)  WBComposeToolBar *toolBar;
+@property(nonatomic, weak)  WBComposeToolBar *toolBar;
 /** 相册 */
-@property(nonatomic, strong)  WBComposePhotosView *photosView;
+@property(nonatomic, weak)  WBComposePhotosView *photosView;
+/** 表情键盘 */
+@property(nonatomic, strong) ZLEmotionKeyboard *emotionKeyBoard;
+/** 切换键盘 */
+@property(nonatomic, assign) BOOL *switchingKeyBoard;
 @end
 
 @implementation ComposeViewController
+- (ZLEmotionKeyboard *)emotionKeyBoard{
+    if (!_emotionKeyBoard) {
+        _emotionKeyBoard = [[ZLEmotionKeyboard alloc] init];
+        _emotionKeyBoard.width = screenWidth;
+        _emotionKeyBoard.height = 216;
+    }
+    return _emotionKeyBoard;
+}
+#pragma mark - 懒加载
 
 #pragma mark - 系统的方法
 - (void)viewDidLoad {
@@ -73,7 +87,7 @@
     WBComposeToolBar *toolBar = [[WBComposeToolBar alloc] init];
     toolBar.width = self.view.width;
     toolBar.delegate = self;
-    toolBar.height = 44;
+    toolBar.height = 37;
 //    self.textView.inputAccessoryView = toolBar;
     toolBar.y = self.view.height - toolBar.height;
     self.toolBar = toolBar;
@@ -101,6 +115,10 @@
 //    UIKeyboardCenterEndUserInfoKey = NSPoint: {187.5, 538},
 //    UIKeyboardAnimationDurationUserInfoKey = 0.25
 //    UIKeyboardAnimationCurveUserInfoKey = 7,
+    
+    //表情正在切换键盘则返回
+    if (self.switchingKeyBoard) return;
+    
     NSDictionary *userInfo = notification.userInfo;
     //键盘弹出的动画时间
     double duration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
@@ -257,13 +275,35 @@
             NSLog(@"#");
             break;
         case WBComposeToolBarButtonEmotion: //表情
-            
+            [self switchKeyboard];
             break;
         default:
             break;
     }
 }
-
+- (void)switchKeyboard{
+    //self.textView.inputView == nil 判断系统自带的键盘
+    if (self.textView.inputView == nil) {//切换为表情键盘
+        self.textView.inputView = self.emotionKeyBoard;
+        //切换表情按钮的显示图标
+        self.toolBar.showKeyBoardButton = YES;
+    }else{//切换为系统自带的键盘
+        self.textView.inputView = nil;
+        //切换表情按钮的显示图标
+        self.toolBar.showKeyBoardButton = NO;
+    }
+    //切换键盘
+    self.switchingKeyBoard = YES;
+    //退出键盘
+    [self.view endEditing:YES];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //弹出键盘
+        [self.textView becomeFirstResponder];
+        //切换键盘完毕
+        self.switchingKeyBoard = NO;
+    });
+}
 #pragma mark - 其他
 - (void)openCamera{
     [self openImagePickerController:UIImagePickerControllerSourceTypeCamera];
