@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F908E4E31DCF18F70036278C /* ZLEmotionPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F908E4E21DCF18F70036278C /* ZLEmotionPageView.m */; };
+		F908E4E61DCF24F90036278C /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = F908E4E51DCF24F90036278C /* NSString+Emoji.m */; };
 		F90BDE4E1DCC24AF006A45BC /* ZLEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = F90BDE4D1DCC24AF006A45BC /* ZLEmotionKeyboard.m */; };
 		F90BDE511DCC2A68006A45BC /* ZLEmotionTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F90BDE501DCC2A68006A45BC /* ZLEmotionTabBar.m */; };
 		F90BDE541DCC2AAB006A45BC /* ZLEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = F90BDE531DCC2AAB006A45BC /* ZLEmotionListView.m */; };
@@ -116,6 +118,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F908E4E11DCF18F70036278C /* ZLEmotionPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLEmotionPageView.h; sourceTree = "<group>"; };
+		F908E4E21DCF18F70036278C /* ZLEmotionPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLEmotionPageView.m; sourceTree = "<group>"; };
+		F908E4E41DCF24F90036278C /* NSString+Emoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Emoji.h"; sourceTree = "<group>"; };
+		F908E4E51DCF24F90036278C /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		F90BDE4C1DCC24AF006A45BC /* ZLEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLEmotionKeyboard.h; sourceTree = "<group>"; };
 		F90BDE4D1DCC24AF006A45BC /* ZLEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLEmotionKeyboard.m; sourceTree = "<group>"; };
 		F90BDE4F1DCC2A68006A45BC /* ZLEmotionTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLEmotionTabBar.h; sourceTree = "<group>"; };
@@ -336,6 +342,8 @@
 				F90BDE561DCC5DDD006A45BC /* WBEmotionTabBarButton.m */,
 				F90BDE521DCC2AAB006A45BC /* ZLEmotionListView.h */,
 				F90BDE531DCC2AAB006A45BC /* ZLEmotionListView.m */,
+				F908E4E11DCF18F70036278C /* ZLEmotionPageView.h */,
+				F908E4E21DCF18F70036278C /* ZLEmotionPageView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -700,6 +708,8 @@
 		F9E87FAE1D30F1BD0001662B /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				F908E4E41DCF24F90036278C /* NSString+Emoji.h */,
+				F908E4E51DCF24F90036278C /* NSString+Emoji.m */,
 				F9D75DD61D8D6B3300FB5DBF /* NSDate+Extension.h */,
 				F9D75DD71D8D6B3300FB5DBF /* NSDate+Extension.m */,
 				F945A94C1D5ECABD00785A33 /* Foundation+Log.m */,
@@ -1086,6 +1096,7 @@
 				F9F736301D5FF01E003C3331 /* MJIvar.m in Sources */,
 				F9E87FD81D30F1BD0001662B /* testViewController.m in Sources */,
 				F9DC80271D5803080005FC19 /* MBProgressHUD.m in Sources */,
+				F908E4E61DCF24F90036278C /* NSString+Emoji.m in Sources */,
 				F945A97C1D5F4C0200785A33 /* SDWebImageDownloaderOperation.m in Sources */,
 				F918E38A1D92C716001C6D2D /* WBStatusPhotoView.m in Sources */,
 				F90BDE511DCC2A68006A45BC /* ZLEmotionTabBar.m in Sources */,
@@ -1101,6 +1112,7 @@
 				F9DC80251D5803080005FC19 /* MBProgressHUD+MJ.m in Sources */,
 				F9E87FDC1D30F9980001662B /* UIBarButtonItem+Extension.m in Sources */,
 				F9190E2A1DC5CA8B005EC692 /* PlaceHolderTextView.m in Sources */,
+				F908E4E31DCF18F70036278C /* ZLEmotionPageView.m in Sources */,
 				F9F736361D5FF01E003C3331 /* NSObject+MJKeyValue.m in Sources */,
 				F945A97F1D5F4C0200785A33 /* UIButton+WebCache.m in Sources */,
 				F9E87FCF1D30F1BD0001662B /* DiscoverViewController.m in Sources */,

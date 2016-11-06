@@ -31,6 +31,7 @@
 #import "NSDate+Extension.h"
 #import "NSString+Extension.h"
 #import "MBProgressHUD+MJ.h"
+#import "NSString+Emoji.h"
 
 //定义开发模式和发布模式下的NSLog，让在发布模式下无打印数出
 #ifdef DEBUG

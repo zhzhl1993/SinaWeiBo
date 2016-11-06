@@ -7,8 +7,7 @@
 //
 
 #import "ZLEmotionListView.h"
-
-#define ZLEmotionNum 20
+#import "ZLEmotionPageView.h"
 
 @interface ZLEmotionListView()<UIScrollViewDelegate>
 
@@ -33,8 +32,8 @@
         
         //2.pageControl
         UIPageControl *pageControl = [[UIPageControl alloc] init];
-        pageControl.currentPageIndicatorTintColor = YYColor(225, 10, 10);
         pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+        pageControl.currentPageIndicatorTintColor = [UIColor redColor];
         pageControl.userInteractionEnabled = NO;
         [self addSubview:pageControl];
         self.pageControl = pageControl;
@@ -46,13 +45,22 @@
 - (void)setEmotions:(NSArray *)emotions{
     _emotions = emotions;
     
-    NSUInteger count = (emotions.count + ZLEmotionNum - 1) / ZLEmotionNum;
+    NSUInteger count = (emotions.count + ZLEmotionPerPageNum - 1) / ZLEmotionPerPageNum;
     //1.页数设置
     self.pageControl.numberOfPages = count;
     //2.scrollView
-    for (int i = 0; i < self.pageControl.numberOfPages; i++) {
-        UIView *pageView = [[UIView alloc] init];
-        pageView.backgroundColor = YYRandomColor;
+    for (int i = 0; i < count; i++) {
+        ZLEmotionPageView *pageView = [[ZLEmotionPageView alloc] init];
+        //计算范围
+        NSRange range;
+        range.location = i * ZLEmotionPerPageNum;
+        NSUInteger left = emotions.count - range.location;
+        if (left >= ZLEmotionPerPageNum) {
+            range.length =  ZLEmotionPerPageNum;
+        }else{
+            range.length =  left;
+        }
+        pageView.emotions = [emotions subarrayWithRange:range];
         [self.scrollView addSubview:pageView];
     }
     
