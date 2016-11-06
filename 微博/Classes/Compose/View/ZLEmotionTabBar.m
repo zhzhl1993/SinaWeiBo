@@ -21,7 +21,7 @@
         [self setupBtn:@"默认" withButtonType:ZLEmotionTabBarButtonTypeDefault];
         [self setupBtn:@"Emoji" withButtonType:ZLEmotionTabBarButtonTypeEmoji];
         [self setupBtn:@"浪小花" withButtonType:ZLEmotionTabBarButtonTypeLxh];
-        }
+    }
     return self;
 }
 
@@ -33,9 +33,7 @@
     [btn addTarget:self action:@selector(clcikTabBar:) forControlEvents:UIControlEventTouchDown];
     [btn setTitle:title forState:UIControlStateNormal];
     btn.tag = type;
-    if (type == ZLEmotionTabBarButtonTypeDefault) {
-        [self clcikTabBar:btn];
-    }
+    
     NSString *image = @"compose_emotion_table_mid_normal";
     NSString *selectedImage = @"compose_emotion_table_mid_selected";
     if (self.subviews.count == 0) {
@@ -46,16 +44,21 @@
         selectedImage = @"compose_emotion_table_right_selected";
     }
     [btn setBackgroundImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
-    [btn setBackgroundImage:[UIImage imageNamed:selectedImage] forState:UIControlStateSelected];
+    [btn setBackgroundImage:[UIImage imageNamed:selectedImage] forState:UIControlStateDisabled];
     [self addSubview:btn];
     
     return btn;
 }
 
+- (void)setDelegate:(id<ZLEmotionTabBarDelegate>)delegate{
+    _delegate = delegate;
+    
+    [self clcikTabBar:[self viewWithTag:ZLEmotionTabBarButtonTypeDefault]];
+}
 - (void)clcikTabBar:(UIButton *)btn{
     
-    self.selectedBtn.selected = NO;
-    btn.selected = YES;
+    self.selectedBtn.enabled = YES;
+    btn.enabled = NO;
     self.selectedBtn = btn;
     if ([self.delegate respondsToSelector:@selector(emotionTabBar:didSelectButton:)]) {
         [self.delegate emotionTabBar:self didSelectButton:btn.tag];

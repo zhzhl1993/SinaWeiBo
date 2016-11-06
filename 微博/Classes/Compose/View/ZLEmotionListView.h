@@ -10,4 +10,6 @@
 
 @interface ZLEmotionListView : UIView
 
+/** 存放表情模型 */
+@property(nonatomic, strong) NSArray *emotions;
 @end

@@ -24,20 +24,20 @@
 /** 表情键盘 */
 @property(nonatomic, strong) ZLEmotionKeyboard *emotionKeyBoard;
 /** 切换键盘 */
-@property(nonatomic, assign) BOOL *switchingKeyBoard;
+@property(nonatomic, assign) BOOL switchingKeyBoard;
 @end
 
 @implementation ComposeViewController
+
+#pragma mark - 懒加载
 - (ZLEmotionKeyboard *)emotionKeyBoard{
     if (!_emotionKeyBoard) {
         _emotionKeyBoard = [[ZLEmotionKeyboard alloc] init];
-        _emotionKeyBoard.width = screenWidth;
+        _emotionKeyBoard.width = self.view.width;
         _emotionKeyBoard.height = 216;
     }
     return _emotionKeyBoard;
 }
-#pragma mark - 懒加载
-
 #pragma mark - 系统的方法
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -46,6 +46,8 @@
 		F9695D071D699DF600303B6A /* WBStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9695D061D699DF600303B6A /* WBStatusCell.m */; };
 		F9695D0A1D69A71800303B6A /* WBStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F9695D091D69A71800303B6A /* WBStatusFrame.m */; };
 		F997001F1D6FAD0B00803B49 /* WBPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F997001E1D6FAD0B00803B49 /* WBPhotoModel.m */; };
+		F99C27161DCD7CBA0089685B /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = F99C27151DCD7CBA0089685B /* EmotionIcons */; };
+		F99C271D1DCD819E0089685B /* WBEmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F99C271C1DCD819E0089685B /* WBEmotionModel.m */; };
 		F9AB68471D5957E2006A4D66 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB68461D5957E2006A4D66 /* UIWindow+Extension.m */; };
 		F9B4AEF91D3A63310089CF45 /* NewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B4AEF81D3A63310089CF45 /* NewFeatureController.m */; };
 		F9BC16D11DC590A000623C2E /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC16D01DC590A000623C2E /* ComposeViewController.m */; };
@@ -191,6 +193,9 @@
 		F9695D091D69A71800303B6A /* WBStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusFrame.m; sourceTree = "<group>"; };
 		F997001D1D6FAD0B00803B49 /* WBPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoModel.h; sourceTree = "<group>"; };
 		F997001E1D6FAD0B00803B49 /* WBPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhotoModel.m; sourceTree = "<group>"; };
+		F99C27151DCD7CBA0089685B /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
+		F99C271B1DCD819E0089685B /* WBEmotionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEmotionModel.h; sourceTree = "<group>"; };
+		F99C271C1DCD819E0089685B /* WBEmotionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmotionModel.m; sourceTree = "<group>"; };
 		F9AB68451D5957E2006A4D66 /* UIWindow+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWindow+Extension.h"; sourceTree = "<group>"; };
 		F9AB68461D5957E2006A4D66 /* UIWindow+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWindow+Extension.m"; sourceTree = "<group>"; };
 		F9B4AEF71D3A63310089CF45 /* NewFeatureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewFeatureController.h; sourceTree = "<group>"; };
@@ -402,6 +407,15 @@
 			path = classes;
 			sourceTree = "<group>";
 		};
+		F99C27171DCD7F910089685B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F99C271B1DCD819E0089685B /* WBEmotionModel.h */,
+				F99C271C1DCD819E0089685B /* WBEmotionModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F9B4AEF51D3A63020089CF45 /* NewFeature */ = {
 			isa = PBXGroup;
 			children = (
@@ -423,6 +437,7 @@
 		F9BC16CD1DC5905F00623C2E /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				F99C27171DCD7F910089685B /* Model */,
 				F9190E2B1DC6CCA9005EC692 /* View */,
 				F9BC16CE1DC5906000623C2E /* Controller */,
 			);
@@ -531,6 +546,7 @@
 		F9E843C01D197ADF001124B2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F99C27151DCD7CBA0089685B /* EmotionIcons */,
 				F9E843CC1D197ADF001124B2 /* Assets.xcassets */,
 				F9E843CE1D197ADF001124B2 /* LaunchScreen.storyboard */,
 				F9E843D11D197ADF001124B2 /* Info.plist */,
@@ -993,6 +1009,7 @@
 				F9E843D01D197ADF001124B2 /* LaunchScreen.storyboard in Resources */,
 				F9E87FD71D30F1BD0001662B /* Test2ViewController.xib in Resources */,
 				F9DC80261D5803080005FC19 /* MBProgressHUD.bundle in Resources */,
+				F99C27161DCD7CBA0089685B /* EmotionIcons in Resources */,
 				F9E87FD91D30F1BD0001662B /* testViewController.xib in Resources */,
 				F9E843CD1D197ADF001124B2 /* Assets.xcassets in Resources */,
 			);
@@ -1053,6 +1070,7 @@
 				F9F736311D5FF01E003C3331 /* MJMember.m in Sources */,
 				F945A9831D5F4C0200785A33 /* UIImageView+HighlightedWebCache.m in Sources */,
 				F9DC80191D56F2E50005FC19 /* AFURLSessionManager.m in Sources */,
+				F99C271D1DCD819E0089685B /* WBEmotionModel.m in Sources */,
 				F9D75DDE1D8D7B9D00FB5DBF /* WBStatusPhotosView.m in Sources */,
 				F9190E2E1DC6CCD9005EC692 /* WBComposeToolBar.m in Sources */,
 				F945A94D1D5ECABD00785A33 /* Foundation+Log.m in Sources */,

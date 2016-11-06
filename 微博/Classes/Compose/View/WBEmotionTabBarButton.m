@@ -17,7 +17,7 @@
         
         //设置文字颜色
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateSelected];
+        [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateDisabled];
     }
     return self;
 }
