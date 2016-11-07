@@ -8,26 +8,32 @@
 
 #import "ZLEmotionPageView.h"
 #import "WBEmotionModel.h"
+#import "ZLEmotionPopView.h"
+#import "ZLEmotionButton.h"
+
+@interface ZLEmotionPageView()
+/** 表情放大镜 */
+@property(nonatomic, strong) ZLEmotionPopView *popView;
+@end
 
 @implementation ZLEmotionPageView
+- (ZLEmotionPopView *)popView{
+    if (!_popView) {
+        _popView = [ZLEmotionPopView popView];
+    }
+    return _popView;
+}
 
 - (void)setEmotions:(NSArray *)emotions{
     _emotions = emotions;
     
     NSUInteger count = emotions.count;
     for (int i = 0; i < count; i++) {
-        UIButton *btn = [[UIButton alloc] init];
-        btn.titleLabel.font = [UIFont systemFontOfSize:32];
-        WBEmotionModel *model = emotions[i];
-        if (model.png) {
-            [btn setImage:[UIImage imageNamed:model.png] forState:UIControlStateNormal];
-        }else if (model.code){
-            //设置emoji
-            [btn setTitle:model.code.emoji forState:UIControlStateNormal];
-        }
+        ZLEmotionButton *btn = [[ZLEmotionButton alloc] init];
         [self addSubview:btn];
+        btn.emotions = emotions[i];
+        [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     }
-    WBLog(@"%lu",(unsigned long)emotions.count);
 }
 
 -(void)layoutSubviews{
@@ -44,5 +50,32 @@
         btn.x = inset + (i % 7) * btnW;
         btn.y = inset + (i / 7) * btnH;
     }
+}
+
+/** 表情按钮的点击 */
+- (void)btnClick:(ZLEmotionButton *)btn{
+    //给popView传数据
+    self.popView.emotion = btn.emotions;
+    
+    //取出最上面的窗口
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    [window addSubview:self.popView];
+//    [btn.superview convertRect:btn.frame toView:window];
+    //计算出被点击的按钮在window中的位置
+    CGRect btnFrame = [btn convertRect:btn.bounds toView:nil];
+    //设置位置
+    self.popView.centerY = CGRectGetMidY(btnFrame) - self.popView.height;
+    self.popView.centerX = CGRectGetMidX(btnFrame);
+    
+    //等待一段时间后自动消失
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.popView removeFromSuperview];
+    });
+    
+    //发送通知
+    NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
+    userInfo[emotionSelectKey] = btn.emotions;
+    [[NSNotificationCenter defaultCenter] postNotificationName:emotionSelectNotification object:nil userInfo:userInfo];
 }
 @end

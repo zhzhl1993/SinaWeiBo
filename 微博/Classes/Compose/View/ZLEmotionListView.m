@@ -63,7 +63,6 @@
         pageView.emotions = [emotions subarrayWithRange:range];
         [self.scrollView addSubview:pageView];
     }
-    
 }
 
 - (void)layoutSubviews{

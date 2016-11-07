@@ -8,15 +8,16 @@
 
 #import "ComposeViewController.h"
 #import "WBAccountTool.h"
-#import "PlaceHolderTextView.h"
+#import "WBEmotionTextView.h"
 #import "AFNetworking.h"
 #import "WBComposeToolBar.h"
 #import "WBComposePhotosView.h"
 #import "ZLEmotionKeyboard.h"
+#import "WBEmotionModel.h"
 
 @interface ComposeViewController ()<UITextViewDelegate,WBComposeToolBarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 /** 文字输入框 */
-@property(nonatomic, weak) UITextView *textView;
+@property(nonatomic, weak) WBEmotionTextView *textView;
 /** 键盘上工具条 */
 @property(nonatomic, weak)  WBComposeToolBar *toolBar;
 /** 相册 */
@@ -97,7 +98,7 @@
  *添加输入控件
  */
 - (void)setupTextView{
-    PlaceHolderTextView *textView = [[PlaceHolderTextView alloc] initWithFrame:self.view.bounds];
+    WBEmotionTextView *textView = [[WBEmotionTextView alloc] initWithFrame:self.view.bounds];
     textView.font = [UIFont systemFontOfSize:15];
     textView.placeHolder = @"分享你的新鲜事...";
     textView.alwaysBounceVertical = YES;
@@ -109,8 +110,18 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
     //键盘弹出通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    //表情选中的通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelected:) name:emotionSelectNotification object:nil];
 }
 
+/*
+ *  表情选中
+ */
+- (void)emotionDidSelected:(NSNotification *)notification{
+    WBEmotionModel *emotion = notification.userInfo[emotionSelectKey];
+    
+    [self.textView insertEmotion:emotion];
+}
 - (void)keyboardWillChangeFrame:(NSNotification *)notification{
 //    UIKeyboardCenterEndUserInfoKey = NSPoint: {187.5, 538},
 //    UIKeyboardAnimationDurationUserInfoKey = 0.25
