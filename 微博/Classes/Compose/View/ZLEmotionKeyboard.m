@@ -11,6 +11,7 @@
 #import "ZLEmotionTabBar.h"
 #import "WBEmotionModel.h"
 #import "MJExtension.h"
+#import "WBEmotionTool.h"
 
 @interface ZLEmotionKeyboard()<ZLEmotionTabBarDelegate>
 /** contentView */
@@ -31,6 +32,7 @@
 - (ZLEmotionListView *)recentListView{
     if (!_recentListView) {
         _recentListView = [[ZLEmotionListView alloc] init];
+        _recentListView.emotions = [WBEmotionTool recentEmotion];
     }
     return _recentListView;
 }

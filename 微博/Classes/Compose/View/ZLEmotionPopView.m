@@ -21,9 +21,20 @@
     return [[[NSBundle mainBundle] loadNibNamed:@"ZLEmotionPopView" owner:nil options:nil] lastObject];
 }
 
-- (void)setEmotion:(WBEmotionModel *)emotion{
-    _emotion = emotion;
+- (void)showFrom:(ZLEmotionButton *)emotionBtn{
     
-    self.emotionBtn.emotions = emotion;
+    if (emotionBtn == nil) return;
+    //给popView传数据
+    self.emotionBtn.emotion = emotionBtn.emotion;
+    
+    //取出最上面的窗口
+    UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
+    [window addSubview:self];
+    //    [btn.superview convertRect:btn.frame toView:window];
+    //计算出被点击的按钮在window中的位置
+    CGRect btnFrame = [emotionBtn convertRect:emotionBtn.bounds toView:nil];
+    //设置位置
+    self.centerY = CGRectGetMidY(btnFrame) - self.height;
+    self.centerX = CGRectGetMidX(btnFrame);
 }
 @end

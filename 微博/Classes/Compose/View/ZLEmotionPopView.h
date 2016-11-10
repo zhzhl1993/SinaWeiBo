@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class WBEmotionModel;
+@class WBEmotionModel,ZLEmotionButton;
 
 @interface ZLEmotionPopView : UIView
-@property(nonatomic, strong) WBEmotionModel *emotion;
 
 + (instancetype)popView;
+- (void)showFrom:(ZLEmotionButton *)emotionBtn;
 @end

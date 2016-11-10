@@ -13,7 +13,7 @@
 /** 每一页最大行数 */
 #define ZLEmotionMaxRows 3
 /** 每一页显示的最多个数 */
-#define ZLEmotionPerPageNum ((ZLEmotionMaxCols * ZLEmotionMaxRows) + 1)
+#define ZLEmotionPerPageNum ((ZLEmotionMaxCols * ZLEmotionMaxRows) - 1)
 
 @interface ZLEmotionPageView : UIView
 

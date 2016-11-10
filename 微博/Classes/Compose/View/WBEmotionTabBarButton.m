@@ -11,7 +11,7 @@
 @implementation WBEmotionTabBarButton
 
 - (instancetype)initWithFrame:(CGRect)frame{
-    if (self == [super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
         //字体
         self.titleLabel.font = [UIFont systemFontOfSize:13];
         

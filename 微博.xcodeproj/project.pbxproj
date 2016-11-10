@@ -103,6 +103,8 @@
 		F9F736351D5FF01E003C3331 /* NSObject+MJCoding.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F736281D5FF01E003C3331 /* NSObject+MJCoding.m */; };
 		F9F736361D5FF01E003C3331 /* NSObject+MJKeyValue.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F7362A1D5FF01E003C3331 /* NSObject+MJKeyValue.m */; };
 		F9F736371D5FF01E003C3331 /* NSObject+MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = F9F7362C1D5FF01E003C3331 /* NSObject+MJMember.m */; };
+		F9FB14811DD417CA005099E0 /* WBEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FB14801DD417CA005099E0 /* WBEmotionAttachment.m */; };
+		F9FB14851DD44E75005099E0 /* WBEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F9FB14841DD44E75005099E0 /* WBEmotionTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -314,6 +316,10 @@
 		F9F7362A1D5FF01E003C3331 /* NSObject+MJKeyValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJKeyValue.m"; sourceTree = "<group>"; };
 		F9F7362B1D5FF01E003C3331 /* NSObject+MJMember.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJMember.h"; sourceTree = "<group>"; };
 		F9F7362C1D5FF01E003C3331 /* NSObject+MJMember.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MJMember.m"; sourceTree = "<group>"; };
+		F9FB147F1DD417CA005099E0 /* WBEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEmotionAttachment.h; sourceTree = "<group>"; };
+		F9FB14801DD417CA005099E0 /* WBEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmotionAttachment.m; sourceTree = "<group>"; };
+		F9FB14831DD44E75005099E0 /* WBEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBEmotionTool.h; sourceTree = "<group>"; };
+		F9FB14841DD44E75005099E0 /* WBEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmotionTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +447,8 @@
 			children = (
 				F99C271B1DCD819E0089685B /* WBEmotionModel.h */,
 				F99C271C1DCD819E0089685B /* WBEmotionModel.m */,
+				F9FB147F1DD417CA005099E0 /* WBEmotionAttachment.h */,
+				F9FB14801DD417CA005099E0 /* WBEmotionAttachment.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -466,6 +474,7 @@
 		F9BC16CD1DC5905F00623C2E /* Compose */ = {
 			isa = PBXGroup;
 			children = (
+				F9FB14821DD44E5F005099E0 /* Tool */,
 				F99C27171DCD7F910089685B /* Model */,
 				F9190E2B1DC6CCA9005EC692 /* View */,
 				F9BC16CE1DC5906000623C2E /* Controller */,
@@ -932,6 +941,15 @@
 			path = MJExtension;
 			sourceTree = "<group>";
 		};
+		F9FB14821DD44E5F005099E0 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				F9FB14831DD44E75005099E0 /* WBEmotionTool.h */,
+				F9FB14841DD44E75005099E0 /* WBEmotionTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1092,6 +1110,7 @@
 				F9F7362D1D5FF01E003C3331 /* MJArgument.m in Sources */,
 				F9E87FD51D30F1BD0001662B /* ProfileViewController.m in Sources */,
 				F95AE6CC1D3667AE00EF30E2 /* WBTitleMenuViewController.m in Sources */,
+				F9FB14811DD417CA005099E0 /* WBEmotionAttachment.m in Sources */,
 				F95AE6C91D36642E00EF30E2 /* ZLDropDownMenu.m in Sources */,
 				F945A9771D5F4C0200785A33 /* NSData+ImageContentType.m in Sources */,
 				F945A9801D5F4C0200785A33 /* UIImage+GIF.m in Sources */,
@@ -1121,6 +1140,7 @@
 				F9695D071D699DF600303B6A /* WBStatusCell.m in Sources */,
 				F9F736301D5FF01E003C3331 /* MJIvar.m in Sources */,
 				F9E87FD81D30F1BD0001662B /* testViewController.m in Sources */,
+				F9FB14851DD44E75005099E0 /* WBEmotionTool.m in Sources */,
 				F9DC80271D5803080005FC19 /* MBProgressHUD.m in Sources */,
 				F908E4E61DCF24F90036278C /* NSString+Emoji.m in Sources */,
 				F945A97C1D5F4C0200785A33 /* SDWebImageDownloaderOperation.m in Sources */,

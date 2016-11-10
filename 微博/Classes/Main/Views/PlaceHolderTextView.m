@@ -30,12 +30,18 @@
     [self setNeedsDisplay];
 }
 
-- (void)intersectPlaceHolderColor:(NSSet *)objects{
-    _placeHolderColor = _placeHolderColor;
+- (void)setPlaceHolderColor:(UIColor *)placeHolderColor{
+    _placeHolderColor = placeHolderColor;
     [self setNeedsDisplay];
 }
+
 - (void)setText:(NSString *)text{
     [super setText:text];
+    [self setNeedsDisplay];
+}
+- (void)setAttributedText:(NSAttributedString *)attributedText{
+    [super setAttributedText:attributedText];
+    
     [self setNeedsDisplay];
 }
 - (void)setFont:(UIFont *)font{
@@ -57,5 +63,4 @@
     CGRect placeholderRect = CGRectMake(x, y, width, height);
     [self.placeHolder drawInRect:placeholderRect withAttributes:dictAttr];
 }
-
 @end

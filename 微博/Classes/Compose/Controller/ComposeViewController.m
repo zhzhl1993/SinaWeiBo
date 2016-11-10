@@ -112,6 +112,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     //表情选中的通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelected:) name:emotionSelectNotification object:nil];
+    //表情删除通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDelete) name:emotionDeleteNotification object:nil];
 }
 
 /*
@@ -121,6 +123,12 @@
     WBEmotionModel *emotion = notification.userInfo[emotionSelectKey];
     
     [self.textView insertEmotion:emotion];
+}
+/*
+ *  表情选中
+ */
+- (void)emotionDelete{
+    [self.textView deleteBackward];
 }
 - (void)keyboardWillChangeFrame:(NSNotification *)notification{
 //    UIKeyboardCenterEndUserInfoKey = NSPoint: {187.5, 538},
@@ -206,7 +214,7 @@
     //2.拼接请求参数
     NSMutableDictionary *paraM = [NSMutableDictionary dictionary];
     WBAccountModel *account = [WBAccountTool account];
-    paraM[@"status"] = self.textView.text;
+    paraM[@"status"] = self.textView.fullText;
     paraM[@"access_token"] = account.access_token;
     
     //3.发送请求
@@ -237,7 +245,7 @@
     //2.拼接请求参数
     NSMutableDictionary *paraM = [NSMutableDictionary dictionary];
     WBAccountModel *account = [WBAccountTool account];
-    paraM[@"status"] = self.textView.text;
+    paraM[@"status"] = self.textView.fullText;
     paraM[@"access_token"] = account.access_token;
     
     //3.发送请求
@@ -308,11 +316,12 @@
     //退出键盘
     [self.view endEditing:YES];
     
+    //切换键盘完毕
+    self.switchingKeyBoard = NO;
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         //弹出键盘
         [self.textView becomeFirstResponder];
-        //切换键盘完毕
-        self.switchingKeyBoard = NO;
     });
 }
 #pragma mark - 其他

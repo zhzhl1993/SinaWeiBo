@@ -12,4 +12,6 @@
 @interface WBEmotionTextView : PlaceHolderTextView
 
 - (void)insertEmotion:(WBEmotionModel *)emotion;
+
+- (NSString *)fullText;
 @end

@@ -9,7 +9,7 @@
 #import "WBAccountTool.h"
 #import "WBAccountModel.h"
 
-
+//账号的存储路径
 #define WBAccountPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"accout.archive"]
 
 @implementation WBAccountTool

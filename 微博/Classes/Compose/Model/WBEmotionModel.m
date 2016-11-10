@@ -7,7 +7,15 @@
 //
 
 #import "WBEmotionModel.h"
+#import "MJExtension.h"
 
+@interface WBEmotionModel()<NSCoding>
+
+
+@end
 @implementation WBEmotionModel
-
+/*
+ *   对模型中的属性归档和解档
+ */
+MJCodingImplementation
 @end

@@ -16,7 +16,7 @@
 @implementation WBComposeToolBar
 
 - (instancetype)initWithFrame:(CGRect)frame{
-    if (self == [super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
         
         self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"compose_toolbar_background"]];
         

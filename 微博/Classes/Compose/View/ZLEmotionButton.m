@@ -13,7 +13,7 @@
 
 /** 当控件不是从xib、storyBoard中创建时候就会调用这个方法 */
 - (instancetype)initWithFrame:(CGRect)frame{
-    if (self == [super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
        [self setup];
     }
     return self;
@@ -28,7 +28,8 @@
 }
 /** 当控件执行完initWithCoder的时候就会调用这个方法 */
 - (void)awakeFromNib{
-    
+    [super awakeFromNib];
+    [self setup];
 }
 
 /** 初始化方法 */
@@ -38,13 +39,13 @@
     self.adjustsImageWhenHighlighted = NO;
 }
 
-- (void)setEmotions:(WBEmotionModel *)emotions{
-    _emotions = emotions;
-    if (emotions.png) {
-        [self setImage:[UIImage imageNamed:emotions.png] forState:UIControlStateNormal];
-    }else if (emotions.code){
+- (void)setEmotion:(WBEmotionModel *)emotion{
+    _emotion = emotion;
+    if (emotion.png) {
+        [self setImage:[UIImage imageNamed:emotion.png] forState:UIControlStateNormal];
+    }else if (emotion.code){
         //设置emoji
-        [self setTitle:emotions.code.emoji forState:UIControlStateNormal];
+        [self setTitle:emotion.code.emoji forState:UIControlStateNormal];
     }
 }
 @end

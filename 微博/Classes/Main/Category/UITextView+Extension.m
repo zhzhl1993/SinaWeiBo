@@ -10,17 +10,21 @@
 
 @implementation UITextView (Extension)
 
-- (void)insertAttributeText:(NSAttributedString *)text{
+- (void)insertAttributedText:(NSAttributedString *)text{
+    [self insertAttributedText:text settingBlock:nil];
+}
+
+- (void)insertAttributedText:(NSAttributedString *)text settingBlock:(void (^)(NSMutableAttributedString *))settingBlock{
+    
     NSMutableAttributedString *attrText = [[NSMutableAttributedString alloc] init];
     [attrText appendAttributedString:self.attributedText];
-    CGFloat loc = self.selectedRange.location;
-    [attrText insertAttributedString:text atIndex:loc];
-    
-    //设置字体
-    [attrText addAttribute:NSFontAttributeName value:self.font range:NSMakeRange(0, attrText.length)];
-    
+    NSUInteger loc = self.selectedRange.location;
+    [attrText replaceCharactersInRange:self.selectedRange withAttributedString:text];
+    //调用外面传进来的代码
+    if (settingBlock) {
+        settingBlock(attrText);
+    }
     self.attributedText = attrText;
-    
     //设置完文字移动光标到文字后面
     self.selectedRange = NSMakeRange(loc + 1, 0);
 }

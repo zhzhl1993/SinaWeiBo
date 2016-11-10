@@ -17,7 +17,7 @@
 @implementation ZLEmotionListView
 
 - (instancetype)initWithFrame:(CGRect)frame{
-    if (self == [super initWithFrame:frame]) {
+    if (self = [super initWithFrame:frame]) {
         
         self.backgroundColor = [UIColor whiteColor];
         
@@ -32,6 +32,8 @@
         
         //2.pageControl
         UIPageControl *pageControl = [[UIPageControl alloc] init];
+        //当只有一页的时候不显示页码
+        pageControl.hidesForSinglePage = YES;
         pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
         pageControl.currentPageIndicatorTintColor = [UIColor redColor];
         pageControl.userInteractionEnabled = NO;
