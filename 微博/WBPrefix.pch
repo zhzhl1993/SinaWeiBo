@@ -20,12 +20,7 @@
 #import "MBProgressHUD+MJ.h"
 #import "NSString+Emoji.h"
 #import "UITextView+Extension.h"
-
-//账号信息
-#define WBAppKey @"4118810800"
-#define WBRedirectUrl @"http://www.baidu.com"
-#define WBAppSecrert @"6c65ee0dcbc0e9883f531d717103f4b3"
-
+#import "WBConst.h"
 #define titleColor [UIColor colorWithRed:123/255.0 green:123/255.0 blue:123/255.0 alpha:1]
 #define randomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1]
 // RGB颜色
@@ -48,8 +43,3 @@
 
 #endif /* WBPrefix_pch */
 
-//表情选中的通知
-#define emotionSelectNotification @"WBEmotionDidSelected"
-#define emotionSelectKey @"selectEmotion"
-//表情删除的通知
-#define emotionDeleteNotification @"WBEmotionDidDelete"
