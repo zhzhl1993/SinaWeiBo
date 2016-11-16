@@ -58,6 +58,8 @@
 		F9AB68471D5957E2006A4D66 /* UIWindow+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB68461D5957E2006A4D66 /* UIWindow+Extension.m */; };
 		F9B4AEF91D3A63310089CF45 /* NewFeatureController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9B4AEF81D3A63310089CF45 /* NewFeatureController.m */; };
 		F9BC16D11DC590A000623C2E /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F9BC16D01DC590A000623C2E /* ComposeViewController.m */; };
+		F9C32F1A1DDC07E20065710E /* WBConst.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C32F191DDC07E20065710E /* WBConst.m */; };
+		F9C32F1E1DDC37430065710E /* WBHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F9C32F1D1DDC37430065710E /* WBHttpTool.m */; };
 		F9D75DD81D8D6B3300FB5DBF /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D75DD71D8D6B3300FB5DBF /* NSDate+Extension.m */; };
 		F9D75DDB1D8D757400FB5DBF /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D75DDA1D8D757400FB5DBF /* NSString+Extension.m */; };
 		F9D75DDE1D8D7B9D00FB5DBF /* WBStatusPhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = F9D75DDD1D8D7B9D00FB5DBF /* WBStatusPhotosView.m */; };
@@ -224,6 +226,10 @@
 		F9B4AEF81D3A63310089CF45 /* NewFeatureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewFeatureController.m; sourceTree = "<group>"; };
 		F9BC16CF1DC590A000623C2E /* ComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		F9BC16D01DC590A000623C2E /* ComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
+		F9C32F181DDC07E20065710E /* WBConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBConst.h; sourceTree = "<group>"; };
+		F9C32F191DDC07E20065710E /* WBConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBConst.m; sourceTree = "<group>"; };
+		F9C32F1C1DDC37430065710E /* WBHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBHttpTool.h; sourceTree = "<group>"; };
+		F9C32F1D1DDC37430065710E /* WBHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBHttpTool.m; sourceTree = "<group>"; };
 		F9D75DD61D8D6B3300FB5DBF /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
 		F9D75DD71D8D6B3300FB5DBF /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		F9D75DD91D8D757400FB5DBF /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
@@ -492,6 +498,15 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		F9C32F1B1DDC37270065710E /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				F9C32F1C1DDC37430065710E /* WBHttpTool.h */,
+				F9C32F1D1DDC37430065710E /* WBHttpTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		F9DC80011D56D87C0005FC19 /* OAuth授权 */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,6 +739,7 @@
 		F9E87FAD1D30F1BD0001662B /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F9C32F1B1DDC37270065710E /* Tool */,
 				F9E87FAE1D30F1BD0001662B /* Category */,
 				F9E87FAF1D30F1BD0001662B /* Controllers */,
 				F9E87FB41D30F1BD0001662B /* Lib */,
@@ -791,6 +807,8 @@
 			children = (
 				F9E87FB71D30F1BD0001662B /* AppDelegate.h */,
 				F9E87FB81D30F1BD0001662B /* AppDelegate.m */,
+				F9C32F181DDC07E20065710E /* WBConst.h */,
+				F9C32F191DDC07E20065710E /* WBConst.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -1150,6 +1168,7 @@
 				F9426A0E1D7DA7D400076C9A /* WBStatusToolbar.m in Sources */,
 				F9DC801E1D5763BD0005FC19 /* WBAccountModel.m in Sources */,
 				F94C45A51DD0561B008CF92D /* ZLEmotionButton.m in Sources */,
+				F9C32F1E1DDC37430065710E /* WBHttpTool.m in Sources */,
 				F9E87FD31D30F1BD0001662B /* AppDelegate.m in Sources */,
 				F928003D1D65490F00A478E3 /* WBLoadMoreFooter.m in Sources */,
 				F9E87FE11D327FC80001662B /* UIView+Extension.m in Sources */,
@@ -1169,6 +1188,7 @@
 				F945A9781D5F4C0200785A33 /* SDImageCache.m in Sources */,
 				F9F736371D5FF01E003C3331 /* NSObject+MJMember.m in Sources */,
 				F9B4AEF91D3A63310089CF45 /* NewFeatureController.m in Sources */,
+				F9C32F1A1DDC07E20065710E /* WBConst.m in Sources */,
 				F9E87FD01D30F1BD0001662B /* HomeViewController.m in Sources */,
 				F945A9881D5F4EE000785A33 /* WBUser.m in Sources */,
 				F95128801D58B93000E61C4A /* WBAccountTool.m in Sources */,

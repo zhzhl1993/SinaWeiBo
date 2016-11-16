@@ -7,9 +7,9 @@
 //
 
 #import "WBOAuthViewController.h"
-#import "AFNetworking.h"
 #import "MBProgressHUD+MJ.h"
 #import "WBAccountTool.h"
+#import "WBHttpTool.h"
 
 @interface WBOAuthViewController ()<UIWebViewDelegate>
 
@@ -84,37 +84,24 @@
  */
 - (void)accessTokenWithCode:(NSString *)code{
     
-    //1.创建管理者
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    /*因为新浪数据格式虽然是json，但是它申明成字符串类型，故在响应序列化器self.acceptableContentTypes里面添加了@"text/plain"
-     self.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"application/json", @"text/json", @"text/javascript", nil];
-     */
-    //内部改了，在此可以注释
-//    manager.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    //2.拼接请求参数
+    //1.拼接请求参数
     NSMutableDictionary *paraM = [NSMutableDictionary dictionary];
     paraM[@"client_id"] = WBAppKey;
     paraM[@"client_secret"] = WBAppSecrert;
     paraM[@"grant_type"] = @"authorization_code";
     paraM[@"code"] = code;
     paraM[@"redirect_uri"] = WBRedirectUrl;
-    //3.发送请求
-    [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:paraM progress:^(NSProgress * _Nonnull uploadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary* responseObject) {
+    
+    [WBHttpTool post:@"https://api.weibo.com/oauth2/access_token" Params:paraM success:^(id json) {
         [MBProgressHUD hideHUD];
         //将返回账号数据存储转换成模型然后存储
-        WBAccountModel *account = [WBAccountModel accountWithDict:responseObject];
-        
+        WBAccountModel *account = [WBAccountModel accountWithDict:json];
         //存储账号信息
         [WBAccountTool saveAccountWithAccount:account];
-        
         //切换根控制器
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         [window switchViewController];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-
+    } failure:^(NSError *error) {
         [MBProgressHUD hideHUD];
         WBLog(@"请求失败%@",error);
     }];

@@ -10,7 +10,6 @@
 #import "UIBarButtonItem+Extension.h"
 #import "ZLDropDownMenu.h"
 #import "WBTitleMenuViewController.h"
-#import "AFNetworking.h"
 #import "WBAccountTool.h"
 #import "WBTitleButton.h"
 #import "UIImageView+WebCache.h"
@@ -20,6 +19,7 @@
 #import "WBLoadMoreFooter.h"
 #import "WBStatusCell.h"
 #import "WBStatusFrame.h"
+#import "WBHttpTool.h"
 
 @interface HomeViewController () <ZLDropDownMenuDelegate>
 
@@ -64,20 +64,16 @@
  */
 - (void)setupUnreadCount
 {
-    // 1.请求管理者
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
     
-    // 2.拼接请求参数
+    // 1.拼接请求参数
     WBAccountModel *account = [WBAccountTool account];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = account.access_token;
     params[@"uid"] = account.uid;
     
-    // 3.发送请求
-    [mgr GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSString *status = [responseObject[@"status"] description];
+    // 2.发送请求
+    [WBHttpTool get:@"https://rm.api.weibo.com/2/remind/unread_count.json" Params:params success:^(id json) {
+        NSString *status = [json[@"status"] description];
         NSLog(@"-----====-----%@", status);
         if ([status isEqualToString:@"0"]) { // 如果是0，得清空数字
             //在tabBar上显示未读信息条数
@@ -88,7 +84,7 @@
             self.tabBarItem.badgeValue = status;
             [UIApplication sharedApplication].applicationIconBadgeNumber = status.intValue;
         }
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         WBLog(@"请求失败-%@", error);
     }];
 }
@@ -177,10 +173,7 @@
  */
 - (void)loadMoreStatus
 {
-    // 1.请求管理者
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    
-    // 2.拼接请求参数
+    // 1.拼接请求参数
     WBAccountModel *account = [WBAccountTool account];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = account.access_token;
@@ -194,13 +187,10 @@
         params[@"max_id"] = @(maxId);
     }
     
-    // 3.发送请求
-    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+    // 2.发送请求
+    [WBHttpTool get:@"https://api.weibo.com/2/statuses/friends_timeline.json" Params:params success:^(id json) {
         // 将 "微博字典"数组 转为 "微博模型"数组
-        NSArray *newStatus = [WBStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *newStatus = [WBStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         
         //将WBStatus的数组转为WBStatusFrame的数组
         NSMutableArray *newFrames = [NSMutableArray array];
@@ -219,11 +209,12 @@
         
         // 结束刷新(隐藏footer)
         self.tableView.tableFooterView.hidden = YES;
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         WBLog(@"请求失败-%@", error);
         
         // 结束刷新
         self.tableView.tableFooterView.hidden = YES;
+
     }];
 }
 
@@ -283,28 +274,22 @@
  */
 - (void)setupUserInfo{
     
-    //1.创建管理者
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    //2.拼接参数
+    //1.拼接参数
     WBAccountModel *account = [WBAccountTool account];
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     dict[@"access_token"] = account.access_token;
     dict[@"uid"] = account.uid;
     
-    //3.获取信息
-    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:dict progress:^(NSProgress * _Nonnull downloadProgress) {
-        
-    } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+    //2.获取信息
+    [WBHttpTool get:@"https://api.weibo.com/2/users/show.json" Params:dict success:^(id json) {
         //设置主页标题
         WBTitleButton *titleBtn = (WBTitleButton *)self.navigationItem.titleView;
-        WBUser *user = [WBUser objectWithKeyValues:responseObject];
+        WBUser *user = [WBUser objectWithKeyValues:json];
         [titleBtn setTitle:user.name forState:UIControlStateNormal];
         
         account.name = user.name;
         [WBAccountTool saveAccountWithAccount:account];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         NSLog(@"请求失败---%@", error);
     }];
 }
