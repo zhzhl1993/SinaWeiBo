@@ -12,6 +12,20 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#import "UIView+Extension.h"
+#import "UIWindow+Extension.h"
+#import "MJExtension.h"
+#import "NSDate+Extension.h"
+#import "NSString+Extension.h"
+#import "MBProgressHUD+MJ.h"
+#import "NSString+Emoji.h"
+#import "UITextView+Extension.h"
+
+//账号信息
+#define WBAppKey @"4118810800"
+#define WBRedirectUrl @"http://www.baidu.com"
+#define WBAppSecrert @"6c65ee0dcbc0e9883f531d717103f4b3"
+
 #define titleColor [UIColor colorWithRed:123/255.0 green:123/255.0 blue:123/255.0 alpha:1]
 #define randomColor [UIColor colorWithRed:arc4random_uniform(256)/255.0 green:arc4random_uniform(256)/255.0 blue:arc4random_uniform(256)/255.0 alpha:1]
 // RGB颜色
@@ -24,15 +38,6 @@
 //定义屏幕宽度高度
 #define screenWidth [UIScreen mainScreen].bounds.size.width
 #define screenHeight [UIScreen mainScreen].bounds.size.height
-
-#import "UIView+Extension.h"
-#import "UIWindow+Extension.h"
-#import "MJExtension.h"
-#import "NSDate+Extension.h"
-#import "NSString+Extension.h"
-#import "MBProgressHUD+MJ.h"
-#import "NSString+Emoji.h"
-#import "UITextView+Extension.h"
 
 //定义开发模式和发布模式下的NSLog，让在发布模式下无打印数出
 #ifdef DEBUG

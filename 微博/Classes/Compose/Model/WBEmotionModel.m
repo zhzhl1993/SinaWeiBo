@@ -18,4 +18,11 @@
  *   对模型中的属性归档和解档
  */
 MJCodingImplementation
+
+/**
+ *  常用来比较两个WBEmotionModel对象是否一样
+ */
+- (BOOL)isEqual:(WBEmotionModel *)object{
+    return ([self.chs isEqualToString:object.chs] || [self.code isEqual:object.code]);
+}
 @end

@@ -35,7 +35,8 @@
     //AppKey：4118810800
     //AppSecret：6c65ee0dcbc0e9883f531d717103f4b3
     //RedirectUrl:http://www.baidu.com
-    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=4118810800&redirect_uri=http://www.baidu.com"];
+    NSString *urlStr = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@",WBAppKey,WBRedirectUrl];
+    NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
 }
@@ -44,7 +45,7 @@
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidStartLoad:(UIWebView *)webView{
     WBLog(@"webViewDidStartLoad");
-    [MBProgressHUD showMessage:@"正在加载数据......"];
+    [MBProgressHUD showMessage:@"正在加载数据..."];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
@@ -93,11 +94,11 @@
     
     //2.拼接请求参数
     NSMutableDictionary *paraM = [NSMutableDictionary dictionary];
-    paraM[@"client_id"] = @"4118810800";
-    paraM[@"client_secret"] = @"6c65ee0dcbc0e9883f531d717103f4b3";
+    paraM[@"client_id"] = WBAppKey;
+    paraM[@"client_secret"] = WBAppSecrert;
     paraM[@"grant_type"] = @"authorization_code";
     paraM[@"code"] = code;
-    paraM[@"redirect_uri"] = @"http://www.baidu.com";
+    paraM[@"redirect_uri"] = WBRedirectUrl;
     //3.发送请求
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:paraM progress:^(NSProgress * _Nonnull uploadProgress) {
         

@@ -32,7 +32,7 @@
 - (ZLEmotionListView *)recentListView{
     if (!_recentListView) {
         _recentListView = [[ZLEmotionListView alloc] init];
-        _recentListView.emotions = [WBEmotionTool recentEmotion];
+        _recentListView.emotions = [WBEmotionTool recentEmotions];
     }
     return _recentListView;
 }
@@ -77,10 +77,18 @@
         tabBar.delegate = self;
         self.tabBar = tabBar;
         [self addSubview:tabBar];
+        
+        //表情选中的通知
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelected) name:emotionSelectNotification object:nil];
     }
     return self;
 }
-
+- (void)emotionDidSelected{
+    self.recentListView.emotions = [WBEmotionTool recentEmotions];
+}
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 - (void)layoutSubviews{
     [super layoutSubviews];
     //1.tabBar
