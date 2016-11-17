@@ -16,6 +16,11 @@
     return @{@"pic_urls": [WBPhotoModel class]};
 }
 
+- (void)setText:(NSString *)text{
+    _text = [text copy];
+    
+    //利用text生成attributeText
+}
 /**
  1.今年
  1> 今天

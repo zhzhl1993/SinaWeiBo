@@ -223,7 +223,7 @@
     
     /** 内容 */
     self.contentLabel.frame = statusFrame.contentLabelF;
-    self.contentLabel.text = status.text;
+    self.contentLabel.attributedText = status.attributeText;
     
     /** 转发微博 */
     /** 转发微博整体 */

@@ -13,8 +13,10 @@
 
 /** string 字符串类型的微博UID */
 @property(nonatomic, copy) NSString *idstr;
+
 /** string 微博信息内容 */
 @property(nonatomic, copy) NSString *text;
+@property(nonatomic, copy) NSAttributedString *attributeText;
 /** object 微博作者的用户字段 */
 @property(nonatomic, strong) WBUser *user;
 /** string 创建时间 */
@@ -37,5 +39,4 @@
 @property(nonatomic, assign) int comments_count;
 /** 表态数 */
 @property(nonatomic, assign) int attitudes_count;
-
 @end

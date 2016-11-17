@@ -11,6 +11,12 @@
 
 @interface WBHttpTool : NSObject
 
+/**
+ *  GET请求
+ */
 + (void)get:(NSString *)url Params:(NSDictionary *)params success:(void (^)(id json))success failure:(void (^)(NSError *error))failure;
+/**
+ *  POST求
+ */
 + (void)post:(NSString *)url Params:(NSDictionary *)params success:(void (^)(id json))success failure:(void (^)(NSError *error))failure;
 @end
