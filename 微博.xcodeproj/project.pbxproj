@@ -47,6 +47,9 @@
 		F94C45A51DD0561B008CF92D /* ZLEmotionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F94C45A41DD0561B008CF92D /* ZLEmotionButton.m */; };
 		F94C45A81DD08916008CF92D /* WBEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F94C45A71DD08916008CF92D /* WBEmotionTextView.m */; };
 		F95128801D58B93000E61C4A /* WBAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F951287F1D58B93000E61C4A /* WBAccountTool.m */; };
+		F95164CE1DDEA3FD007CF19A /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = F95164CD1DDEA3FD007CF19A /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F95164D11DDEA4CD007CF19A /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F95164D01DDEA4CD007CF19A /* libicucore.tbd */; };
+		F95164D41DDEEFB0007CF19A /* WBTextPart.m in Sources */ = {isa = PBXBuildFile; fileRef = F95164D31DDEEFB0007CF19A /* WBTextPart.m */; };
 		F95AE6C91D36642E00EF30E2 /* ZLDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6C81D36642E00EF30E2 /* ZLDropDownMenu.m */; };
 		F95AE6CC1D3667AE00EF30E2 /* WBTitleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6CB1D3667AE00EF30E2 /* WBTitleMenuViewController.m */; };
 		F95AE6CF1D36720300EF30E2 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6CE1D36720300EF30E2 /* WBTabBar.m */; };
@@ -205,6 +208,11 @@
 		F94C45A71DD08916008CF92D /* WBEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBEmotionTextView.m; sourceTree = "<group>"; };
 		F951287E1D58B93000E61C4A /* WBAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBAccountTool.h; sourceTree = "<group>"; };
 		F951287F1D58B93000E61C4A /* WBAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBAccountTool.m; sourceTree = "<group>"; };
+		F95164CC1DDEA3FD007CF19A /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		F95164CD1DDEA3FD007CF19A /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
+		F95164D01DDEA4CD007CF19A /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		F95164D21DDEEFB0007CF19A /* WBTextPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTextPart.h; sourceTree = "<group>"; };
+		F95164D31DDEEFB0007CF19A /* WBTextPart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBTextPart.m; sourceTree = "<group>"; };
 		F95AE6C71D36642E00EF30E2 /* ZLDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZLDropDownMenu.h; sourceTree = "<group>"; };
 		F95AE6C81D36642E00EF30E2 /* ZLDropDownMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZLDropDownMenu.m; sourceTree = "<group>"; };
 		F95AE6CA1D3667AE00EF30E2 /* WBTitleMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBTitleMenuViewController.h; sourceTree = "<group>"; };
@@ -333,6 +341,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F95164D11DDEA4CD007CF19A /* libicucore.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +439,23 @@
 			name = Tool;
 			path = "微博/Classes/OAuth授权/Tool";
 			sourceTree = SOURCE_ROOT;
+		};
+		F95164CB1DDEA3EF007CF19A /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				F95164CC1DDEA3FD007CF19A /* RegexKitLite.h */,
+				F95164CD1DDEA3FD007CF19A /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
+		F95164CF1DDEA4CC007CF19A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F95164D01DDEA4CD007CF19A /* libicucore.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
 		};
 		F95AF1E91D2F52C300FE27A5 /* Classes */ = {
 			isa = PBXGroup;
@@ -574,6 +600,7 @@
 				F9E843D91D197ADF001124B2 /* 微博Tests */,
 				F9E843E41D197ADF001124B2 /* 微博UITests */,
 				F9E843BE1D197ADF001124B2 /* Products */,
+				F95164CF1DDEA4CC007CF19A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -705,6 +732,8 @@
 				F9695D091D69A71800303B6A /* WBStatusFrame.m */,
 				F918E38B1D92C7F5001C6D2D /* WBPhoto.h */,
 				F918E38C1D92C7F5001C6D2D /* WBPhoto.m */,
+				F95164D21DDEEFB0007CF19A /* WBTextPart.h */,
+				F95164D31DDEEFB0007CF19A /* WBTextPart.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -787,6 +816,7 @@
 		F9E87FB41D30F1BD0001662B /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				F95164CB1DDEA3EF007CF19A /* RegexKitLite */,
 				F9F736151D5FF01E003C3331 /* MJExtension */,
 				F945A9541D5F4C0200785A33 /* SDWebImage */,
 				F9DC801F1D5803080005FC19 /* MBProgressHUD */,
@@ -1176,6 +1206,7 @@
 				F90BDE4E1DCC24AF006A45BC /* ZLEmotionKeyboard.m in Sources */,
 				F95AE6CF1D36720300EF30E2 /* WBTabBar.m in Sources */,
 				F9DC80251D5803080005FC19 /* MBProgressHUD+MJ.m in Sources */,
+				F95164CE1DDEA3FD007CF19A /* RegexKitLite.m in Sources */,
 				F9E87FDC1D30F9980001662B /* UIBarButtonItem+Extension.m in Sources */,
 				F9190E2A1DC5CA8B005EC692 /* PlaceHolderTextView.m in Sources */,
 				F908E4E31DCF18F70036278C /* ZLEmotionPageView.m in Sources */,
@@ -1189,6 +1220,7 @@
 				F9F736371D5FF01E003C3331 /* NSObject+MJMember.m in Sources */,
 				F9B4AEF91D3A63310089CF45 /* NewFeatureController.m in Sources */,
 				F9C32F1A1DDC07E20065710E /* WBConst.m in Sources */,
+				F95164D41DDEEFB0007CF19A /* WBTextPart.m in Sources */,
 				F9E87FD01D30F1BD0001662B /* HomeViewController.m in Sources */,
 				F945A9881D5F4EE000785A33 /* WBUser.m in Sources */,
 				F95128801D58B93000E61C4A /* WBAccountTool.m in Sources */,
