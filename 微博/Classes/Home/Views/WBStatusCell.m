@@ -230,13 +230,11 @@
     if (status.retweeted_status) {
         
         WBStatus *retweeted_status = status.retweeted_status;
-        WBUser *retweeted_status_user = status.user;
         
         self.retweetView.hidden = NO;
         /** 内容 */
-        NSString *retweetContent = [NSString stringWithFormat:@"@%@:%@", retweeted_status_user.name, retweeted_status.text];
         self.retweetContentLabel.frame = statusFrame.retweetContentLabelF;
-        self.retweetContentLabel.text = retweetContent;
+        self.retweetContentLabel.attributedText = status.retweeted_statusAttributeText;
         
         /** 配图 */
         if (retweeted_status.pic_urls.count) {//有配图

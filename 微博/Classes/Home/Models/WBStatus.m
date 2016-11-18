@@ -9,6 +9,8 @@
 #import "WBStatus.h"
 #import "WBUser.h"
 #import "WBPhotoModel.h"
+#import "RegexKitLite.h"
+#import "WBTextPart.h"
 
 @implementation WBStatus
 
@@ -16,10 +18,83 @@
     return @{@"pic_urls": [WBPhotoModel class]};
 }
 
-- (void)setText:(NSString *)text{
-    _text = [text copy];
-    
+- (NSAttributedString *)attributeTextWithText:(NSString *)text{
     //利用text生成attributeText
+    NSMutableAttributedString *attributeText = [[NSMutableAttributedString alloc] init];
+    //表情规则
+    NSString *emotionPattern = @"\\[[0-9a-zA-Z\\u4e00-\\u9fa5]+\\]";
+    //@规则
+    NSString *atPattern = @"@[0-9a-zA-Z\\u4e00-\\u9fa5-_]+";
+    //话题规则
+    NSString *topicPattern = @"#[0-9a-zA-Z]+#";
+    //链接规则
+    NSString *urlPattern = @"\\b(([\\w-]+://?|www[.])[^\\s()<>]+(?:\\([\\w\\d]+\\)|([^[:punct:]\\s]|/)))";
+    NSString *pattern = [NSString stringWithFormat:@"%@|%@|%@|%@",emotionPattern, atPattern, topicPattern,urlPattern];
+    //便利所有的特殊字符串
+    NSMutableArray *parts = [NSMutableArray array];
+    [text enumerateStringsMatchedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        
+        if ((*capturedRanges).length == 0) return ;
+        
+        WBTextPart *part = [[WBTextPart alloc] init];
+        part.special = YES;
+        part.emotion = [part.text hasPrefix:@"[" ] && [part.text hasSuffix:@"]"];
+        part.text = *capturedStrings;
+        part.range = *capturedRanges;
+        [parts addObject:part];
+    }];
+    //便利所有的非特殊字符串
+    [text enumerateStringsSeparatedByRegex:pattern usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
+        
+        if ((*capturedRanges).length == 0) return ;
+        
+        WBTextPart *part = [[WBTextPart alloc] init];
+        part.text = *capturedStrings;
+        part.range = *capturedRanges;
+        [parts addObject:part];
+    }];
+    
+    //排序
+    //系统默认是按照从小到大的顺序排列的
+    [parts sortedArrayUsingComparator:^NSComparisonResult(WBTextPart *part1, WBTextPart *part2) {
+        //如果位置1大于位置2
+        if (part1.range.location > part2.range.location) {
+            return NSOrderedDescending;
+        }
+        return NSOrderedAscending;
+    }];
+
+    //拼接文字
+    for (WBTextPart *part in parts) {
+        NSAttributedString *subStr = nil;
+        if (part.emotion) {//表情
+            NSTextAttachment *attach = [[NSTextAttachment alloc] init];
+            attach.image = [UIImage imageNamed:@"d_aini"];
+            attach.bounds = CGRectMake(0, -3, 15, 15) ;
+            subStr = [NSAttributedString attributedStringWithAttachment:attach];
+        }else if(part.special){//特殊文字
+            subStr = [[NSAttributedString alloc] initWithString:part.text attributes:@{
+                NSForegroundColorAttributeName:[UIColor redColor]
+                                                                        }];
+        }else{//普通文字
+            subStr = [[NSAttributedString alloc] initWithString:part.text];
+        }
+        [attributeText appendAttributedString:subStr];
+    }
+    //一定要设置字体，保证计算出来的尺寸是正确的
+    [attributeText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, attributeText.length)];
+    return attributeText;
+}
+- (void)setText:(NSString *)text{
+    _text = text;
+    
+    self.attributeText = [self attributeTextWithText:text];
+}
+
+- (void)setRetweeted_status:(WBStatus *)retweeted_status{
+    _retweeted_status = retweeted_status;
+    NSString *retweetContent = [NSString stringWithFormat:@"@%@:%@",retweeted_status.user.name, retweeted_status.text];
+    self.retweeted_statusAttributeText = [self attributeTextWithText:retweetContent];
 }
 /**
  1.今年

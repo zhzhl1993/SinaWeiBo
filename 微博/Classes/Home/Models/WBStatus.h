@@ -27,6 +27,8 @@
 @property(nonatomic, copy) NSArray *pic_urls;
 /** 转发微博 */
 @property(nonatomic, strong) WBStatus *retweeted_status;
+/** 转发微博的属性文字 */
+@property(nonatomic, copy) NSAttributedString *retweeted_statusAttributeText;
 
 /*
  reposts_count	int	转发数
