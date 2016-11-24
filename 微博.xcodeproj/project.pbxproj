@@ -55,6 +55,8 @@
 		F95AE6CF1D36720300EF30E2 /* WBTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = F95AE6CE1D36720300EF30E2 /* WBTabBar.m */; };
 		F9695D071D699DF600303B6A /* WBStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F9695D061D699DF600303B6A /* WBStatusCell.m */; };
 		F9695D0A1D69A71800303B6A /* WBStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F9695D091D69A71800303B6A /* WBStatusFrame.m */; };
+		F983EF2E1DE6906000402F15 /* WBStatusTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F983EF2D1DE6906000402F15 /* WBStatusTextView.m */; };
+		F983EF311DE6CCA400402F15 /* WBSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = F983EF301DE6CCA400402F15 /* WBSpecial.m */; };
 		F997001F1D6FAD0B00803B49 /* WBPhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F997001E1D6FAD0B00803B49 /* WBPhotoModel.m */; };
 		F99C27161DCD7CBA0089685B /* EmotionIcons in Resources */ = {isa = PBXBuildFile; fileRef = F99C27151DCD7CBA0089685B /* EmotionIcons */; };
 		F99C271D1DCD819E0089685B /* WBEmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F99C271C1DCD819E0089685B /* WBEmotionModel.m */; };
@@ -223,6 +225,10 @@
 		F9695D061D699DF600303B6A /* WBStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusCell.m; sourceTree = "<group>"; };
 		F9695D081D69A71800303B6A /* WBStatusFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusFrame.h; sourceTree = "<group>"; };
 		F9695D091D69A71800303B6A /* WBStatusFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusFrame.m; sourceTree = "<group>"; };
+		F983EF2C1DE6906000402F15 /* WBStatusTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBStatusTextView.h; sourceTree = "<group>"; };
+		F983EF2D1DE6906000402F15 /* WBStatusTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBStatusTextView.m; sourceTree = "<group>"; };
+		F983EF2F1DE6CCA400402F15 /* WBSpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBSpecial.h; sourceTree = "<group>"; };
+		F983EF301DE6CCA400402F15 /* WBSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBSpecial.m; sourceTree = "<group>"; };
 		F997001D1D6FAD0B00803B49 /* WBPhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WBPhotoModel.h; sourceTree = "<group>"; };
 		F997001E1D6FAD0B00803B49 /* WBPhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WBPhotoModel.m; sourceTree = "<group>"; };
 		F99C27151DCD7CBA0089685B /* EmotionIcons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = EmotionIcons; sourceTree = "<group>"; };
@@ -734,6 +740,8 @@
 				F918E38C1D92C7F5001C6D2D /* WBPhoto.m */,
 				F95164D21DDEEFB0007CF19A /* WBTextPart.h */,
 				F95164D31DDEEFB0007CF19A /* WBTextPart.m */,
+				F983EF2F1DE6CCA400402F15 /* WBSpecial.h */,
+				F983EF301DE6CCA400402F15 /* WBSpecial.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -761,6 +769,8 @@
 				F9695D061D699DF600303B6A /* WBStatusCell.m */,
 				F9426A0C1D7DA7D400076C9A /* WBStatusToolbar.h */,
 				F9426A0D1D7DA7D400076C9A /* WBStatusToolbar.m */,
+				F983EF2C1DE6906000402F15 /* WBStatusTextView.h */,
+				F983EF2D1DE6906000402F15 /* WBStatusTextView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1147,6 +1157,7 @@
 				F945A9531D5EFF8200785A33 /* WBTitleButton.m in Sources */,
 				F9D75DDB1D8D757400FB5DBF /* NSString+Extension.m in Sources */,
 				F9DC80141D56F2E50005FC19 /* AFHTTPSessionManager.m in Sources */,
+				F983EF2E1DE6906000402F15 /* WBStatusTextView.m in Sources */,
 				F9F736341D5FF01E003C3331 /* MJTypeEncoding.m in Sources */,
 				F9DC80151D56F2E50005FC19 /* AFNetworkReachabilityManager.m in Sources */,
 				F9F7362F1D5FF01E003C3331 /* MJFoundation.m in Sources */,
@@ -1163,6 +1174,7 @@
 				F945A9771D5F4C0200785A33 /* NSData+ImageContentType.m in Sources */,
 				F945A9801D5F4C0200785A33 /* UIImage+GIF.m in Sources */,
 				F9F736321D5FF01E003C3331 /* MJMethod.m in Sources */,
+				F983EF311DE6CCA400402F15 /* WBSpecial.m in Sources */,
 				F9DC80171D56F2E50005FC19 /* AFURLRequestSerialization.m in Sources */,
 				F9F736351D5FF01E003C3331 /* NSObject+MJCoding.m in Sources */,
 				F945A97B1D5F4C0200785A33 /* SDWebImageDownloader.m in Sources */,

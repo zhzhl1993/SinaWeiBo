@@ -15,6 +15,7 @@
 #import "WBStatusToolbar.h"
 #import "WBStatusPhotosView.h"
 #import "WBIconView.h"
+#import "WBStatusTextView.h"
 
 @interface WBStatusCell()
 
@@ -34,13 +35,13 @@
 /** 来源 */
 @property(nonatomic, weak) UILabel *sourceLabel;
 /** 内容 */
-@property(nonatomic, weak) UILabel *contentLabel;
+@property(nonatomic, weak) WBStatusTextView *contentLabel;
 
 /** 转发微博 */
 /** 转发微博整体 */
 @property(nonatomic, weak) UIView *retweetView;
 /** 转发微博正文 + 昵称 */
-@property(nonatomic, weak) UILabel *retweetContentLabel;
+@property(nonatomic, weak) WBStatusTextView *retweetContentLabel;
 /** 转发配图 */
 @property(nonatomic, weak) WBStatusPhotosView *retweetPhotoView;
 
@@ -102,8 +103,7 @@
     self.retweetView = retweetView;
     
     /** 转发微博正文 + 昵称 */
-    UILabel *retweetContentLabel = [[UILabel alloc] init];
-    retweetContentLabel.numberOfLines = 0;
+    WBStatusTextView *retweetContentLabel = [[WBStatusTextView alloc] init];
     retweetContentLabel.font = WBretweetContentFont;
     [retweetView addSubview:retweetContentLabel];
     self.retweetContentLabel = retweetContentLabel;
@@ -160,9 +160,8 @@
     self.sourceLabel = sourceLabel;
     
     /** 内容 */
-    UILabel *contentLabel = [[UILabel alloc] init];
+    WBStatusTextView *contentLabel = [[WBStatusTextView alloc] init];
     contentLabel.font = WBStatusCellContentFont;
-    contentLabel.numberOfLines  = 0;
     [originalView addSubview:contentLabel];
     self.contentLabel = contentLabel;
 }

@@ -394,4 +394,8 @@
     WBStatusFrame *frame = self.statusFrames[indexPath.row];
     return frame.cellHeight;
 }
+#pragma mark - 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"didSelectRowAtIndexPath");
+}
 @end

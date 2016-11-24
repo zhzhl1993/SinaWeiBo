@@ -13,6 +13,7 @@
 #import "WBTextPart.h"
 #import "WBEmotionTool.h"
 #import "WBEmotionModel.h"
+#import "WBSpecial.h"
 
 @implementation WBStatus
 
@@ -67,6 +68,7 @@
     }];
 
     UIFont *font = [UIFont systemFontOfSize:15];
+    NSMutableArray *specials = [NSMutableArray array];
     //拼接文字
     for (WBTextPart *part in parts) {
         NSAttributedString *subStr = nil;
@@ -76,14 +78,23 @@
             attach.image = [UIImage imageNamed:name];
             attach.bounds = CGRectMake(0, -3, font.lineHeight, font.lineHeight) ;
             subStr = [NSAttributedString attributedStringWithAttachment:attach];
-        }else if(part.special){//特殊文字
+        }else if(part.special){//除表情之外的特殊文字
             subStr = [[NSAttributedString alloc] initWithString:part.text attributes:@{
                 NSForegroundColorAttributeName:[UIColor redColor]
-                                                                        }];
+                }];
+            //创建特殊对象
+            WBSpecial *spcial = [[WBSpecial alloc] init];
+            spcial.text = part.text;
+            NSUInteger loc = attributeText.length;
+            NSUInteger len = part.text.length;
+            spcial.range = NSMakeRange(loc, len);
+            [specials addObject:spcial];
+            
         }else{//普通文字
             subStr = [[NSAttributedString alloc] initWithString:part.text];
         }
         [attributeText appendAttributedString:subStr];
+        [attributeText addAttribute:@"specials" value:specials range:NSMakeRange(0, 1)];
     }
     //一定要设置字体，保证计算出来的尺寸是正确的
     [attributeText addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, attributeText.length)];
