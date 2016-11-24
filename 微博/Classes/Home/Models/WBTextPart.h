@@ -17,5 +17,5 @@
 /** 是否为特殊文字 */
 @property(nonatomic, assign,getter = isSpecial) BOOL special;
 /** 是否为表情 */
-@property(nonatomic, assign,getter = isEmotion) BOOL emotion;
+@property(nonatomic, assign, getter = isEmotion) BOOL emotion;
 @end

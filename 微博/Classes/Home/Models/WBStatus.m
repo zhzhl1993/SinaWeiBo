@@ -11,6 +11,8 @@
 #import "WBPhotoModel.h"
 #import "RegexKitLite.h"
 #import "WBTextPart.h"
+#import "WBEmotionTool.h"
+#import "WBEmotionModel.h"
 
 @implementation WBStatus
 
@@ -38,8 +40,8 @@
         
         WBTextPart *part = [[WBTextPart alloc] init];
         part.special = YES;
-        part.emotion = [part.text hasPrefix:@"[" ] && [part.text hasSuffix:@"]"];
         part.text = *capturedStrings;
+        part.emotion = [part.text hasPrefix:@"["] && [part.text hasSuffix:@"]"];
         part.range = *capturedRanges;
         [parts addObject:part];
     }];
@@ -64,13 +66,15 @@
         return NSOrderedAscending;
     }];
 
+    UIFont *font = [UIFont systemFontOfSize:15];
     //拼接文字
     for (WBTextPart *part in parts) {
         NSAttributedString *subStr = nil;
-        if (part.emotion) {//表情
+        if (part.isEmotion) {//表情
             NSTextAttachment *attach = [[NSTextAttachment alloc] init];
-            attach.image = [UIImage imageNamed:@"d_aini"];
-            attach.bounds = CGRectMake(0, -3, 15, 15) ;
+            NSString *name = [WBEmotionTool emotionWithChs:part.text].png;
+            attach.image = [UIImage imageNamed:name];
+            attach.bounds = CGRectMake(0, -3, font.lineHeight, font.lineHeight) ;
             subStr = [NSAttributedString attributedStringWithAttachment:attach];
         }else if(part.special){//特殊文字
             subStr = [[NSAttributedString alloc] initWithString:part.text attributes:@{
@@ -82,7 +86,7 @@
         [attributeText appendAttributedString:subStr];
     }
     //一定要设置字体，保证计算出来的尺寸是正确的
-    [attributeText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:15] range:NSMakeRange(0, attributeText.length)];
+    [attributeText addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, attributeText.length)];
     return attributeText;
 }
 - (void)setText:(NSString *)text{

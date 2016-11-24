@@ -41,4 +41,48 @@ static NSMutableArray *_recentEmotions;
 + (NSArray *)recentEmotions{
     return _recentEmotions;
 }
+
+/**
+ *  为了保证只加载一次
+ */
+static NSArray *_emojiEmotions, *_defaultEmotions, *_lxhEmotions;
++ (NSArray *)defaultEmotions{
+    if (!_defaultEmotions) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
+        _defaultEmotions = [WBEmotionModel objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+    }
+    return _defaultEmotions;
+}
++ (NSArray *)emojiEmotions{
+    if (!_emojiEmotions) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
+        _emojiEmotions = [WBEmotionModel objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+    }
+    return _emojiEmotions;
+}
++ (NSArray *)lxhEmotions{
+    if (!_lxhEmotions) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
+        _lxhEmotions = [WBEmotionModel objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
+    }
+    return _lxhEmotions;
+}
+
++ (WBEmotionModel *)emotionWithChs:(NSString *)chs{
+    
+    NSArray * defaults = [self defaultEmotions];
+    for (WBEmotionModel *emotion in defaults) {
+        if ([emotion.chs isEqualToString:chs]) {
+            return emotion;
+        }
+    }
+    
+    NSArray *lxhs = [self lxhEmotions];
+    for (WBEmotionModel *emotion in lxhs) {
+        if ([emotion.chs isEqualToString:chs]) {
+            return emotion;
+        }
+    }
+    return nil;
+}
 @end

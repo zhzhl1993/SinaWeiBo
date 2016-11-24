@@ -39,27 +39,21 @@
 - (ZLEmotionListView *)defaultListView{
     if (!_defaultListView) {
         _defaultListView = [[ZLEmotionListView alloc] init];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
-    NSArray *defaultEmotion = [WBEmotionModel objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
-    _defaultListView.emotions = defaultEmotion;
+    _defaultListView.emotions = [WBEmotionTool defaultEmotions];
     }
     return _defaultListView;
 }
 - (ZLEmotionListView *)emojiListView{
     if (!_emojiListView) {
         _emojiListView = [[ZLEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
-        NSArray *emojiEmotion = [WBEmotionModel objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
-        _emojiListView.emotions = emojiEmotion;
+        _emojiListView.emotions = [WBEmotionTool emojiEmotions];
     }
     return _emojiListView;
 }
 - (ZLEmotionListView *)lxhListView{
     if (!_lxhListView) {
         _lxhListView = [[ZLEmotionListView alloc] init];
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
-        NSArray *lxhEmotion = [WBEmotionModel objectArrayWithKeyValuesArray:[NSArray arrayWithContentsOfFile:path]];
-        _lxhListView.emotions = lxhEmotion;
+        _lxhListView.emotions = [WBEmotionTool lxhEmotions];
     }
     return _lxhListView;
 }

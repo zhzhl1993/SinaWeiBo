@@ -14,4 +14,13 @@
 + (void)addEmotion:(WBEmotionModel *)emotion;
 
 + (NSArray *)recentEmotions;
++ (NSArray *)defaultEmotions;
++ (NSArray *)emojiEmotions;
++ (NSArray *)lxhEmotions;
+
+/**
+ *  通过表情描述找到对应的表情
+ */
++ (WBEmotionModel *)emotionWithChs:(NSString *)chs;
+
 @end
